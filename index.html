@@ -18,9 +18,9 @@
             width: 100%;
             padding-bottom: 56.25%; 
             height: 0;
-            border: 3px solid #00ff88;
+            border: 3px solid #008f4c; /* Darker green border */
             border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            box-shadow: 0 0 20px rgba(0, 143, 76, 0.3);
             background: #000;
             overflow: hidden;
             margin-bottom: 30px;
@@ -30,24 +30,59 @@
             z-index: 1;
         }
 
-        /* TOP GHOST SHIELD (Invisible but blocks clicks to Title/Share) */
-        .top-shield {
-            position: absolute; 
-            top: 0; left: 0; width: 100%; 
-            height: 90px; /* Deep enough to cover the hidden title bar */
+        /* THE NEW TRACKING BUTTON (NOT BLOCKED) */
+        /* We move this BELOW the video so you can actually use the video controls */
+        .action-bar {
+            background: linear-gradient(90deg, #008f4c 0%, #005e32 100%);
+            border-radius: 10px;
+            margin-top: -15px; /* Pulls it up slightly to tuck under the video */
+            position: relative;
             z-index: 10;
-            background: rgba(0,0,0,0); /* Completely transparent */
-            cursor: default;
+            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .action-bar a {
+            color: #ffffff !important;
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 22px;
+            display: block;
+            text-transform: uppercase;
         }
 
-        /* BOTTOM OVERLAY (Raised and Solid) */
-        .video-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 85px; /* Slightly higher to ensure no gaps */
-            background: linear-gradient(to top, rgba(0, 255, 110, 1) 50%, rgba(0, 255, 110, 0.7) 100%);
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .matrix-img-btn { width: 100%; max-width: 550px; border-radius: 15px; transition: 0.3s; margin-top: 30px; }
+        .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
+        .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
+        .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #008f4c; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1 class="mt-3">🔥 Get Positioned Under 2 Big Recruiters 🔥</h1>
+    <h2>Watch VIDEO Below Where Eric Shows his Downline ALREADY...</h2>
+
+    <div class="my-3">
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/be17435b0c2c2679fa93698d43de8f24.gif" style="max-width: 100%;" alt="STOP">
+    </div>
+
+    <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?start=216&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="action-bar">
+        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
+            🔥 CLICK HERE TO LOCK IN YOUR SPOT 🔥
+        </a>
+    </div>
+
+    <div class="my-4">
+        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
+            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="matrix-img-btn" alt="Join Now">
+        </a>
+    </div>
+
+    <p style="color: #777; font-size: 14px;">Keep sharing your link even when results are slow.<br>If you quit after 2 weeks, this team is NOT for you.</p>
+
+    <div class="sponsor-box">
+        <img src="https://linkpod.s3.us-east-
