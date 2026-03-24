@@ -85,4 +85,25 @@
     <p style="color: #777; font-size: 14px;">Keep sharing your link even when results are slow.<br>If you quit after 2 weeks, this team is NOT for you.</p>
 
     <div class="sponsor-box">
-        <img src="https://linkpod.s3.us-east-
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/avatars/594a1cb44857ed65f54e080299279121.jpg" class="avatar">
+        <p style="color: #008f4c; font-weight: bold;">Your Sponsor: Troy Pringle</p>
+        <a href="https://wa.me/2488305401" target="_blank">
+             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="55">
+        </a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var params = window.location.search;
+        if (params) {
+            document.querySelectorAll('.track-link').forEach(function(l) {
+                var sep = l.href.indexOf('?') !== -1 ? '&' : '?';
+                l.href = l.href + params.replace('?', sep);
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
