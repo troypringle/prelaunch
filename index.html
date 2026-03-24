@@ -1,94 +1,130 @@
 <!DOCTYPE html>
-<html lang="en-lp" class="link-html" dir="ltr">
+<html lang="en-lp">
 <head>
     <title>OFFICIAL PRELAUNCH - AiMatrix</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
-    <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css?v=5800" rel="stylesheet" media="screen,print">
-    <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/custom.css?v=5800" rel="stylesheet" media="screen,print">
-    <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/link-custom.css?v=5800" rel="stylesheet" media="screen,print">
-    <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/animate.min.css?v=5800" rel="stylesheet" media="screen,print">
+    <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
     
     <style>
-        html, body {font-family: Karla, "Helvetica Neue", Arial, sans-serif !important; background: #000000 !important;}
-        html { font-size: 22px !important; }
-        .link-body-backdrop { backdrop-filter: brightness(68%); }
+        body { 
+            font-family: Karla, sans-serif !important; 
+            background: #000000; 
+            color: white; 
+            margin: 0; 
+            padding: 10px;
+        }
+        /* Make the page wider for desktop, but fluid for mobile */
+        .container-wide { 
+            max-width: 800px; 
+            margin: auto; 
+            text-align: center; 
+        }
+        h1 { font-size: 1.8rem; font-weight: bold; margin-bottom: 20px; }
+        h2 { font-size: 1.2rem; margin-bottom: 30px; }
+        img { max-width: 100%; height: auto; border-radius: 8px; }
+
+        /* VIDEO WRAPPER WITH OVERLAY BAR */
+        .video-wrapper {
+            position: relative; 
+            width: 100%; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            border: 2px solid #00ff88; 
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            background: #000;
+            margin-bottom: 30px;
+        }
+        .video-wrapper iframe { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        }
+
+        /* The "Floating Bar" over the video */
+        .video-overlay-bar {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 50px;
+            background: linear-gradient(to top, rgba(0, 255, 110, 0.95), transparent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .video-overlay-bar a {
+            color: white !important;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+        }
+
+        /* The Big Pulse Button */
+        .matrix-btn-img {
+            display: block;
+            margin: 20px auto;
+            transition: transform 0.3s;
+        }
+        .matrix-btn-img:hover { transform: scale(1.03); }
+
+        .footer-text { font-size: 0.85rem; color: #aaa; margin-top: 30px; }
+        .sponsor-text { color: #66b966; font-weight: bold; margin-top: 10px; }
+        
+        /* Mobile adjustment */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.4rem; }
+            .video-overlay-bar a { font-size: 14px; }
+        }
     </style>
 </head>
+<body>
 
-<body class="link-body" style="background: #000000;">
-    <div id="backdrop" class="link-body-backdrop"></div>
-    <div class="container animate__animated animate__fadeIn">        
-        <div class="row d-flex justify-content-center text-center">        
-            <div class="col-md-12 link-content">
-                <main id="links" class="my-3">
-                    <div class="row">
-                        <div class="col-12 my-3">
-                            <h1 class="h1 m-0 text-break" style="color: #ffffff; text-align: center;">🔥 Get Positioned Under 2 Big Recruiters 🔥</h1>
-                        </div>
+<div class="container-wide">
+    <h1 class="mt-4">🔥 Get Positioned Under 2 Big Recruiters 🔥</h1>
+    <h2>WOW.. Watch VIDEO Below Where Eric Shows his Downline ALREADY...</h2>
 
-                        <div class="col-12 my-3">
-                            <h2 class="h2 m-0 text-break" style="color: #ffffff; text-align: center;">WOW.. Watch VIDEO Below Where Eric Shows his Downline ALREADY...</h2>
-                        </div>
+    <div class="my-4">
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/be17435b0c2c2679fa93698d43de8f24.gif" alt="STOP">
+    </div>
 
-                        <div class="col-12 my-3">
-                            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/be17435b0c2c2679fa93698d43de8f24.gif" class="w-100 h-auto rounded" alt="STOP">
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border: 2px solid #00ff88; border-radius: 6px; box-shadow: 0 0 15px #00ff88, 0 0 28px rgba(0, 255, 136, 0.55); background: #000;">
-                                <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&start=216" style="position: absolute; top: 0px; left: 0px; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <a href="https://troypringle2.aimatrixspillover.com/" class="dynamic-tracking-link">
-                                <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="w-100 h-auto rounded link-hover-animation-smooth" alt="Matrix">
-                            </a>
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <p class="text-center" style="color: #ffffff; font-size: 0.8rem;">Keep sharing your link even when results are slow.<br>If you quit after 2 weeks, this team is NOT for you.</p>
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/avatars/594a1cb44857ed65f54e080299279121.jpg" class="link-image link-avatar-round" style="width: 75px; height: 75px; border: 2px solid #FFFFFF; border-radius: 50%; object-fit: cover;">
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <p class="text-center" style="color:rgb(102,185,102);">Your Sponsor: Troy Pringle</p>
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <a href="https://wa.me/2488305401" target="_blank">
-                                <i class="fab fa-whatsapp fa-3x" style="color: #16E02A"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </main>
-            </div>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?start=216&rel=0" frameborder="0" allowfullscreen></iframe>
+        <div class="video-overlay-bar">
+            <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">🔥 This is Moving FAST! Lock in NOW! 🔥</a>
         </div>
     </div>
 
-    <script src="https://linkpod.s3.us-east-1.amazonaws.com/assets/js/libraries/fontawesome.min.js" defer></script>
-    <script src="https://linkpod.s3.us-east-1.amazonaws.com/assets/js/libraries/fontawesome-brands.min.js" defer></script>
+    <div class="my-4">
+        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
+            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="matrix-btn-img" alt="Lock In">
+        </a>
+    </div>
 
-    <script>
-        (function() {
-            var urlParams = window.location.search;
-            if (urlParams) {
-                // Find all links going to AiMatrix
-                var links = document.querySelectorAll('a[href*="aimatrixspillover.com"]');
-                links.forEach(function(link) {
-                    var separator = link.href.indexOf('?') !== -1 ? '&' : '?';
-                    // Strip the '?' from urlParams and attach
-                    link.href = link.href + urlParams.replace('?', separator);
-                });
-            }
-        })();
-    </script>
+    <p class="footer-text">Keep sharing your link even when results are slow.<br>If you quit after 2 weeks, this team is NOT for you.</p>
+
+    <div class="my-5">
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/avatars/594a1cb44857ed65f54e080299279121.jpg" style="width: 80px; height: 80px; border: 2px solid white; border-radius: 50%;">
+        <p class="sponsor-text">Your Sponsor: Troy Pringle</p>
+        <a href="https://wa.me/2488305401" target="_blank" style="text-decoration: none;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width: 50px; margin-top: 10px;">
+        </a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var query = window.location.search;
+        if (query) {
+            var links = document.querySelectorAll('.track-link');
+            links.forEach(function(l) {
+                var sep = l.href.indexOf('?') !== -1 ? '&' : '?';
+                l.href = l.href + query.replace('?', sep);
+            });
+        }
+    })();
+</script>
+
 </body>
 </html>
