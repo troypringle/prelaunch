@@ -30,11 +30,11 @@
             z-index: 1;
         }
 
-        /* THE SHIELD SYSTEM */
+        /* THE SHIELD SYSTEM - This blocks the "Exits" */
         .shield {
             position: absolute;
             z-index: 20;
-            background: rgba(0,0,0,0.01); /* Forces click-blocking */
+            background: rgba(0,0,0,0.01); /* 1% opacity makes it a physical barrier */
         }
 
         .matrix-img-btn { width: 100%; max-width: 550px; border-radius: 15px; transition: 0.3s; }
@@ -55,13 +55,13 @@
 
     <div class="video-box">
         <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?enablejsapi=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&controls=1&fs=0&autohide=1&wmode=opaque&start=216&playsinline=1" 
-                frameborder="0" allowfullscreen="" allow="autoplay"></iframe>
+                frameborder="0" allowfullscreen="" allow="autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 
-        <div class="shield" style="top:0; left:0; width:100%; height:60px;"></div>
+        <div class="shield" style="top:0; left:0; width:100%; height:70px;"></div>
         
-        <div class="shield" style="bottom:0; left:0; width:30%; height:80px;"></div>
+        <div class="shield" style="bottom:0; left:0; width:30%; height:90px;"></div>
         
-        <div class="shield" style="bottom:0; right:0; width:30%; height:80px;"></div>
+        <div class="shield" style="bottom:0; right:0; width:30%; height:90px;"></div>
         
         <div style="position:absolute; bottom:0; left:0; right:0; height:28px; 
                     background: linear-gradient(to top, rgba(0, 255, 110, 0.7), transparent); 
