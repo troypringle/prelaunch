@@ -30,29 +30,29 @@
             z-index: 1;
         }
 
-        /* INVISIBLE TOP SHIELD */
         .top-shield {
             position: absolute; top: 0; left: 0; width: 100%; height: 80px; z-index: 10;
+            background: transparent;
         }
 
-        /* V11: THE GLASS-GLOW OVERLAY */
+        /* V10: THE SOFT GLOW BAR */
         .video-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 62px; /* Precision height to block logo but show scrollbar top */
-            /* Glass effect: Low opacity (0.4) with a gradient */
+            height: 65px; /* Dropped down 5px from last version */
+            /* Much lower transparency (0.2) for a sophisticated glow */
             background: linear-gradient(to top, rgba(0, 255, 136, 0.6) 0%, rgba(0, 255, 136, 0.2) 100%);
             z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px); /* This creates that "High End" blur */
+            backdrop-filter: blur(4px); /* Increased blur for a "glass" look */
         }
         .video-overlay a {
             color: #000 !important;
             font-weight: 900;
             text-decoration: none;
-            font-size: 19px;
+            font-size: 20px;
             width: 100%;
             height: 100%;
             display: flex;
