@@ -18,9 +18,9 @@
             width: 100%;
             padding-bottom: 56.25%; 
             height: 0;
-            border: 3px solid #008f4c; /* Darker green border */
+            border: 3px solid #008f4c;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 143, 76, 0.3);
+            box-shadow: 0 0 30px rgba(0, 143, 76, 0.4);
             background: #000;
             overflow: hidden;
             margin-bottom: 30px;
@@ -30,28 +30,40 @@
             z-index: 1;
         }
 
-        /* THE NEW TRACKING BUTTON (NOT BLOCKED) */
-        /* We move this BELOW the video so you can actually use the video controls */
-        .action-bar {
-            background: linear-gradient(90deg, #008f4c 0%, #005e32 100%);
-            border-radius: 10px;
-            margin-top: -15px; /* Pulls it up slightly to tuck under the video */
-            position: relative;
-            z-index: 10;
-            padding: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        /* CLEAR TOP SHIELD */
+        .top-shield {
+            position: absolute; top: 0; left: 0; width: 100%; height: 70px; z-index: 10;
+            background: transparent;
         }
-        .action-bar a {
+
+        /* THE RE-POSITIONED DARKER GREEN BAR */
+        .video-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            /* Height adjusted to block the logo but leave the very top of the scroll bar visible */
+            height: 70px; 
+            background: linear-gradient(to top, #008f4c 60%, rgba(0, 143, 76, 0.8) 100%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-overlay a {
             color: #ffffff !important;
             font-weight: 900;
             text-decoration: none;
-            font-size: 22px;
-            display: block;
+            font-size: 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-transform: uppercase;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
-        .matrix-img-btn { width: 100%; max-width: 550px; border-radius: 15px; transition: 0.3s; margin-top: 30px; }
-        .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
+        .matrix-img-btn { width: 100%; max-width: 550px; border-radius: 15px; transition: 0.3s; }
+        .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #008f4c; margin-bottom: 10px; }
     </style>
@@ -67,13 +79,15 @@
     </div>
 
     <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?start=216&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <div class="action-bar">
-        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
-            🔥 CLICK HERE TO LOCK IN YOUR SPOT 🔥
-        </a>
+        <div class="top-shield"></div>
+        
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?start=216&rel=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+        
+        <div class="video-overlay">
+            <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
+                🔥 LOCK IN YOUR SPOT NOW 🔥
+            </a>
+        </div>
     </div>
 
     <div class="my-4">
@@ -85,7 +99,7 @@
     <p style="color: #777; font-size: 14px;">Keep sharing your link even when results are slow.<br>If you quit after 2 weeks, this team is NOT for you.</p>
 
     <div class="sponsor-box">
-        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/avatars/594a1cb44857ed65f54e080299279121.jpg" class="avatar">
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/avatars/594a1cb44857ed65f54e080299279121.jpg" class="avatar">
         <p style="color: #008f4c; font-weight: bold;">Your Sponsor: Troy Pringle</p>
         <a href="https://wa.me/2488305401" target="_blank">
              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="55">
