@@ -104,4 +104,24 @@
 
     <div class="sponsor-box">
         <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/avatars/594a1cb44857ed65f54e080299279121.jpg" class="avatar">
-        <p style="color: #00ff88; font-weight: bold;">Your 
+        <p style="color: #00ff88; font-weight: bold;">Your Sponsor: Troy Pringle</p>
+        <a href="https://wa.me/2488305401" target="_blank">
+             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="55">
+        </a>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var params = window.location.search;
+        if (params) {
+            document.querySelectorAll('.track-link').forEach(function(l) {
+                var sep = l.href.indexOf('?') !== -1 ? '&' : '?';
+                l.href = l.href + params.replace('?', sep);
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
