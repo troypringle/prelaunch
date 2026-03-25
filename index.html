@@ -13,6 +13,20 @@
         h1 { font-size: 1.8rem; font-weight: bold; color: #fff; margin-bottom: 10px; }
         h2 { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; }
         
+        /* THE PINK GLOW BANNER (Top) */
+        .pink-glow { 
+            border: 3px solid #ff00ff; 
+            box-shadow: 0 0 30px #ff00ff; 
+            border-radius: 15px;
+            width: 100%;
+            height: auto;
+            transition: 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+        .pink-glow:hover { transform: scale(1.02); filter: brightness(1.2); }
+
+        /* THE VIDEO BOX (Middle) */
         .video-box {
             position: relative;
             width: 100%;
@@ -30,29 +44,9 @@
             z-index: 1;
         }
 
-        .shield {
-            position: absolute;
-            z-index: 20;
-            background: rgba(0,0,0,0.01);
-        }
+        /* INVISIBLE SHIELDS */
+        .shield { position: absolute; z-index: 20; background: rgba(0,0,0,0.01); }
 
-        .matrix-img-btn { 
-    width: 100%; 
-    max-width: 850px; /* INCREASE THIS: Match your wrapper (850px) for full width */
-    border-radius: 15px; 
-    transition: 0.3s; 
-    display: block;
-    margin: 0 auto;
-}
-        .matrix-img-btn:hover .matrix-img-btn { 
-    width: 100%; 
-    height: auto;
-    border-radius: 15px; 
-    transition: 0.3s; 
-    display: block;
-    margin: 0 auto;
-}
-.matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
     </style>
@@ -60,6 +54,14 @@
 <body>
 
 <div class="wrapper">
+
+    <div class="mb-5" style="width: 100%; text-align: center;">
+        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link" style="display: inline-block; width: 100%; max-width: 100%;">
+            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" 
+                 class="pink-glow" alt="Join Now">
+        </a>
+    </div>
+
     <h1 class="mt-3">🔥 Get Positioned Under 2 Big Recruiters 🔥</h1>
     <h2>Watch VIDEO Below Where Eric Shows his Downline ALREADY...</h2>
 
@@ -69,28 +71,21 @@
 
     <div class="video-box">
         <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?enablejsapi=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&controls=1&fs=0&autohide=1&wmode=opaque&start=216&playsinline=1" 
-                frameborder="0" allowfullscreen="" allow="autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                frameborder="0" allowfullscreen="" allow="autoplay"></iframe>
 
         <div class="shield" style="top:0; left:0; width:100%; height:70px;"></div>
-        
         <div class="shield" style="bottom:0; left:0; width:30%; height:90px;"></div>
         <div class="shield" style="bottom:0; right:0; width:30%; height:90px;"></div>
         
-        <div style="position:absolute; bottom:0; left:0; right:0; height:40px; 
+        <div style="position:absolute; bottom:0; left:0; right:0; height:45px; 
                     background: linear-gradient(to top, rgba(0, 255, 110, 0.9), transparent); 
                     display:flex; align-items:center; justify-content:center; z-index:30; pointer-events:none;">
             <a href="https://troypringle2.aimatrixspillover.com/" class="track-link" target="_blank" 
-               style="color:white; font-size:15px; font-weight:bold; text-decoration:none; 
+               style="color:white; font-size:16px; font-weight:bold; text-decoration:none; 
                       text-shadow:2px 2px 4px rgba(0,0,0,1); pointer-events:auto; letter-spacing: 0.5px;">
                 🔥 CLICK TO LOCK IN NOW 🔥
             </a>
         </div>
-    </div>
-
-    <div class="my-4">
-        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
-            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="matrix-img-btn" alt="Join Now">
-        </a>
     </div>
 
     <div class="sponsor-box">
