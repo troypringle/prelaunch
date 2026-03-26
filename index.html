@@ -11,32 +11,37 @@
         body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 15px; }
         .wrapper { max-width: 850px; margin: auto; text-align: center; }
         
-        /* THE CLIP-PATH FIX: The ultimate scrollbar killer */
-        .ad-container {
+        /* RESTORED PAGE STYLES */
+        .video-box {
+            position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
+            border: 2px solid #00ff88; border-radius: 6px; box-shadow: 0 0 15px #00ff88;
+            background: #000; overflow: hidden; margin-bottom: 30px;
+        }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* THE SCROLLBAR KILLER BOX */
+        .ad-frame {
             display: inline-block;
             vertical-align: top;
-            margin: 15px 5px;
-            width: 252px;
-            height: 90px;
+            margin: 15px 10px;
+            width: 242px;  /* 10 pixels narrower than the ad */
+            height: 82px;  /* 8 pixels shorter than the ad */
             position: relative;
-            /* This cuts off the outer 4 pixels on all sides where scrollbars live */
-            clip-path: inset(2px 5px 5px 2px); 
-            /* Your stealth green filter */
+            overflow: hidden; /* Clips the scrollbars off */
             filter: sepia(1) hue-rotate(90deg) brightness(0.4) contrast(1.2);
-            background: #000; /* Ensures if anything is cut, it shows black */
         }
 
-        .ad-container iframe {
-            border: none !important;
-            overflow: hidden !important;
+        /* Pushes the ad into the center of the frame, hiding the edges */
+        .ad-inner-content {
+            position: absolute;
+            top: -4px; 
+            left: -5px;
+            width: 252px;
+            height: 90px;
         }
 
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
-
-        @media (max-width: 600px) {
-            .ad-container { display: block; margin: 20px auto; }
-        }
     </style>
 </head>
 <body>
@@ -48,14 +53,22 @@
         </a>
     </div>
 
-    <div class="ad-container">
-        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
-        <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+    <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?start=216" frameborder="0" allowfullscreen=""></iframe>
     </div>
 
-    <div class="ad-container">
-        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
-        <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+    <div class="ad-frame">
+        <div class="ad-inner-content">
+            <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+            <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+        </div>
+    </div>
+
+    <div class="ad-frame">
+        <div class="ad-inner-content">
+            <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+            <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+        </div>
     </div>
 
     <div class="sponsor-box">
