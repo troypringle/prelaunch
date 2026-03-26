@@ -30,19 +30,23 @@
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
 
-        /* STEALTH GREEN AD SYSTEM */
+        /* STEALTH GREEN AD SYSTEM - SCROLLBARS REMOVED */
         .ad-container {
             display: inline-block;
             vertical-align: top;
             margin: 15px 8px;
             width: 252px;
+            height: 90px; /* Force exact height */
             position: relative;
-            /* This filter turns the white/red ad into a dark green digital look */
+            overflow: hidden; /* THIS HIDES THE SCROLLBARS */
             filter: sepia(1) hue-rotate(90deg) brightness(0.4) contrast(1.2);
-            transition: none; /* No hover effect as requested */
         }
 
-        /* Mobile Fix: Stack them if the screen is too small */
+        /* Targets the internal iframe to ensure no scrollbars show up */
+        .ad-container iframe {
+            overflow: hidden !important;
+        }
+
         @media (max-width: 600px) {
             .ad-container { display: block; margin: 20px auto; }
         }
