@@ -11,6 +11,7 @@
         body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 15px; }
         .wrapper { max-width: 850px; margin: auto; text-align: center; }
         
+        /* Main Page Styles */
         h1 { font-size: 1.8rem; font-weight: bold; color: #fff; margin-bottom: 10px; }
         h2 { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; }
         
@@ -20,38 +21,33 @@
             background: #000; overflow: hidden; margin-bottom: 30px;
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .shield { position: absolute; z-index: 20; background: rgba(0,0,0,0.01); }
 
-        .matrix-img-btn { width: 100%; max-width: 850px; border-radius: 15px; transition: 0.3s; display: block; margin: 0 auto; }
-        .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
-
-        .top-banner-wrap { box-shadow: 0 0 20px 5px rgba(255, 0, 200, 0.9); border-radius: 18px; display: inline-block; width: 100%; }
-        .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
-        .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
-
-        /* THE CROP FIX FOR SCROLLBARS */
+        /* THE FINAL SCROLLBAR REMEDY */
         .ad-container {
             display: inline-block;
             vertical-align: top;
-            margin: 15px 8px;
-            width: 250px; /* Slightly narrower to crop sides */
-            height: 88px; /* Slightly shorter to crop bottom scrollbar */
+            margin: 15px 5px;
+            /* We make the "window" smaller than the ad to hide the edges */
+            width: 248px; 
+            height: 86px; 
             position: relative;
-            overflow: hidden !important; 
+            overflow: hidden !important;
+            border: none !important;
+            /* Your stealth green filter */
             filter: sepia(1) hue-rotate(90deg) brightness(0.4) contrast(1.2);
-            border: none;
         }
 
-        /* Force the iframe to behave */
-        .ad-container iframe {
+        /* This pushes the ad slightly up and left so the scrollbars are "off-screen" */
+        .ad-container iframe, 
+        .ad-container > div {
+            margin-top: -2px !important;
+            margin-left: -2px !important;
             width: 252px !important;
             height: 90px !important;
-            border: none !important;
-            overflow: hidden !important;
-            position: absolute;
-            top: -1px; /* Offset to hide top/bottom bars */
-            left: -1px; /* Offset to hide side bars */
         }
+
+        .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
+        .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
 
         @media (max-width: 600px) {
             .ad-container { display: block; margin: 20px auto; }
@@ -61,42 +57,19 @@
 <body>
 
 <div class="wrapper">
-    <div class="my-4 top-banner-wrap">
+    <div class="my-4" style="box-shadow: 0 0 20px 5px rgba(255, 0, 200, 0.9); border-radius: 18px; display: inline-block; width: 100%;">
         <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
-            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="matrix-img-btn" alt="Join Now">
+            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" style="width: 100%; max-width: 850px; border-radius: 15px;" alt="Join Now">
         </a>
     </div>
-
-    <h2>Watch VIDEO Below Where Eric Shows his Downline ALREADY...</h2>
 
     <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?enablejsapi=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&controls=1&fs=0&autohide=1&wmode=opaque&start=216&playsinline=1" 
-                frameborder="0" allowfullscreen="" allow="autoplay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-        <div class="shield" style="top:0; left:0; width:100%; height:70px;"></div>
-        <div class="shield" style="bottom:0; left:0; width:30%; height:90px;"></div>
-        <div class="shield" style="bottom:0; right:0; width:30%; height:90px;"></div>
-        
-        <div style="position:absolute; bottom:0; left:0; right:0; height:40px; background: linear-gradient(to top, rgba(0, 255, 110, 0.9), transparent); display:flex; align-items:center; justify-content:center; z-index:30; pointer-events:none;">
-            <a href="https://troypringle2.aimatrixspillover.com/" class="track-link" target="_blank" style="color:white; font-size:15px; font-weight:bold; text-decoration:none; text-shadow:2px 2px 4px rgba(0,0,0,1); pointer-events:auto; letter-spacing: 0.5px;">
-                🔥 CLICK TO LOCK IN NOW 🔥
-            </a>
-        </div>
-    </div>
-
-    <h1 class="mt-3">🔥 Get Positioned Under 2 Big Recruiters 🔥</h1>
-
-    <div class="my-3">
-        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
-            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/be17435b0c2c2679fa93698d43de8f24.gif" style="max-width: 100%;" alt="STOP">
-        </a>
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?start=216" frameborder="0" allowfullscreen=""></iframe>
     </div>
 
     <div class="sponsor-box">
         <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/avatars/594a1cb44857ed65f54e080299279121.jpg" class="avatar">
-        <p style="color: #00ff88; font-weight: bold;">Your Sponsor: Troy Pringle</p>
-        <a href="https://wa.me/2488305401" target="_blank">
-             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="55">
-        </a>
+        <p style="color: #00ff88; font-weight: bold;">Sponsor: Troy Pringle</p>
     </div>
 
     <div class="ad-container">
@@ -109,18 +82,6 @@
         <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
     </div>
 </div>
-
-<script>
-    (function() {
-        var params = window.location.search;
-        if (params) {
-            document.querySelectorAll('.track-link').forEach(function(l) {
-                var sep = l.href.indexOf('?') !== -1 ? '&' : '?';
-                l.href = l.href + params.replace('?', sep);
-            });
-        }
-    })();
-</script>
 
 </body>
 </html>
