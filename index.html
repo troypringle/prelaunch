@@ -47,6 +47,19 @@
         .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
+
+        /* --- THEMED AD BOXES --- */
+        .ad-box-themed {
+            display: inline-block;
+            min-width: 252px;
+            min-height: 90px;
+            margin: 10px;
+            vertical-align: top;
+            background: #000;
+            /* This filter turns white/light colors into dark greens */
+            filter: invert(1) hue-rotate(90deg) brightness(0.7) contrast(1.5);
+            border: 1px solid #004422;
+        }
     </style>
 </head>
 <body>
@@ -85,14 +98,14 @@
         </a>
     </div>
 
-    <div style="display: inline-block; min-width: 252px; min-height: 90px; margin: 10px; vertical-align: top;">
+    <div class="ad-box-themed">
         <script type="text/javascript">
             tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";
         </script>
         <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
     </div>
 
-    <div style="display: inline-block; min-width: 252px; min-height: 90px; margin: 10px; vertical-align: top;">
+    <div class="ad-box-themed">
         <script type="text/javascript">
             tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";
         </script>
