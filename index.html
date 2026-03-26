@@ -28,16 +28,20 @@
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
         
-        /* SIMPLIFIED AD SYSTEM */
+        /* SIDE-BY-SIDE & DARKER ADS */
         .ad-container {
-            margin: 20px auto;
-            display: block;
-            /* Adjust 0.6 to make them darker (lower number) or brighter (higher number) */
-            opacity: 0.6; 
-            transition: 0.3s;
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px 5px;
+            width: 255px; /* Matches the ad width + small buffer */
+            opacity: 0.3; /* Extra dark - change to 0.1 for even darker */
+            transition: 0.5s;
         }
-        /* Optional: Makes them light up when you hover over them */
         .ad-container:hover { opacity: 1; } 
+
+        @media (max-width: 600px) {
+            .ad-container { display: block; margin: 10px auto; }
+        }
     </style>
 </head>
 <body>
