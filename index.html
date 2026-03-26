@@ -8,8 +8,17 @@
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 15px; }
-        .wrapper { max-width: 850px; margin: auto; text-align: center; }
+        body { 
+            font-family: Karla, sans-serif !important; 
+            background: #000000; 
+            color: white; 
+            margin: 0; 
+            padding: 15px; 
+            /* Matrix Vertical Rain Effect */
+            background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 70, .05) 25%, rgba(0, 255, 70, .05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 70, .05) 75%, rgba(0, 255, 70, .05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+        .wrapper { max-width: 850px; margin: auto; text-align: center; position: relative; z-index: 10; }
         h1 { font-size: 1.8rem; font-weight: bold; color: #fff; margin-bottom: 10px; }
         h2 { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; }
         
@@ -24,9 +33,12 @@
         .matrix-img-btn { width: 100%; max-width: 850px; border-radius: 15px; transition: 0.3s; display: block; margin: 0 auto; }
         .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
 
-        .top-banner-wrap { box-shadow: 0 0 20px 5px rgba(255, 0, 200, 0.9); border-radius: 18px; }
-        .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
+        .top-banner-wrap { box-shadow: 0 0 20px 5px rgba(255, 0, 200, 0.9); border-radius: 18px; display: inline-block; width: 100%; }
+        .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; background: rgba(0,0,0,0.5); border-radius: 15px; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
+        
+        /* Spacing for the ad bars */
+        .ad-container { margin-top: 20px; padding: 10px; }
     </style>
 </head>
 <body>
@@ -68,6 +80,14 @@
         <a href="https://wa.me/2488305401" target="_blank">
              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="55">
         </a>
+    </div>
+
+    <div class="ad-container">
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+        <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+        
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+        <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
     </div>
 </div>
 
