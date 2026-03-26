@@ -28,19 +28,26 @@
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
         
-        /* SIDE-BY-SIDE & DARKER ADS */
+        /* THE "MATCH PAGE" DARK AD DESIGN (NO HOVER) */
         .ad-container {
             display: inline-block;
             vertical-align: top;
-            margin: 10px 5px;
-            width: 269px; /* Matches the ad width + small buffer */
-            opacity: 0.1; /* Extra dark - change to 0.1 for even darker */
-            transition: 0.5s;
+            margin: 10px 10px;
+            width: 252px; /* Set precisely to the ad width */
+            transition: 0.3s;
+            /* Applies a simple dark filter over the ad itself */
+            filter: brightness(0.7) contrast(1.1); 
         }
-        .ad-container:hover { opacity: 1; } 
 
+        /* 2nd Ad design to ensure it matches the layout */
+        .ad-container:nth-of-type(2) {
+            margin-right: 0;
+        }
+
+        /* mobile responsiveness */
         @media (max-width: 600px) {
-            .ad-container { display: block; margin: 10px auto; }
+            .ad-container { display: block; margin: 15px auto; }
+            .ad-container:nth-of-type(2) { margin-right: auto; }
         }
     </style>
 </head>
@@ -86,12 +93,12 @@
     </div>
 
     <div class="ad-container">
-        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#000000"; tc_color_title="#003300"; tc_color_background="#000000"; tc_color_text="#003300"; tc_color_url="#00ff88";</script>
         <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
     </div>
 
     <div class="ad-container">
-        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#000000"; tc_color_title="#003300"; tc_color_background="#000000"; tc_color_text="#003300"; tc_color_url="#00ff88";</script>
         <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
     </div>
 </div>
