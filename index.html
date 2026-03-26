@@ -10,6 +10,8 @@
     <style>
         body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 15px; }
         .wrapper { max-width: 850px; margin: auto; text-align: center; }
+        
+        /* Main Page Styles */
         h1 { font-size: 1.8rem; font-weight: bold; color: #fff; margin-bottom: 10px; }
         h2 { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; }
         
@@ -27,27 +29,22 @@
         .top-banner-wrap { box-shadow: 0 0 20px 5px rgba(255, 0, 200, 0.9); border-radius: 18px; display: inline-block; width: 100%; }
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
-        
-        /* THE "MATCH PAGE" DARK AD DESIGN (NO HOVER) */
+
+        /* STEALTH GREEN AD SYSTEM */
         .ad-container {
             display: inline-block;
             vertical-align: top;
-            margin: 10px 10px;
-            width: 252px; /* Set precisely to the ad width */
-            transition: 0.3s;
-            /* Applies a simple dark filter over the ad itself */
-            filter: brightness(0.7) contrast(1.1); 
+            margin: 15px 8px;
+            width: 252px;
+            position: relative;
+            /* This filter turns the white/red ad into a dark green digital look */
+            filter: sepia(1) hue-rotate(90deg) brightness(0.4) contrast(1.2);
+            transition: none; /* No hover effect as requested */
         }
 
-        /* 2nd Ad design to ensure it matches the layout */
-        .ad-container:nth-of-type(2) {
-            margin-right: 0;
-        }
-
-        /* mobile responsiveness */
+        /* Mobile Fix: Stack them if the screen is too small */
         @media (max-width: 600px) {
-            .ad-container { display: block; margin: 15px auto; }
-            .ad-container:nth-of-type(2) { margin-right: auto; }
+            .ad-container { display: block; margin: 20px auto; }
         }
     </style>
 </head>
@@ -93,12 +90,12 @@
     </div>
 
     <div class="ad-container">
-        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#000000"; tc_color_title="#003300"; tc_color_background="#000000"; tc_color_text="#003300"; tc_color_url="#00ff88";</script>
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
         <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
     </div>
 
     <div class="ad-container">
-        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#000000"; tc_color_title="#003300"; tc_color_background="#000000"; tc_color_text="#003300"; tc_color_url="#00ff88";</script>
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
         <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
     </div>
 </div>
