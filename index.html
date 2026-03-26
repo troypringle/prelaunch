@@ -1,1 +1,38 @@
-butts
+<style>
+    /* THE "WINDOW" */
+    .ad-sleeve {
+        display: inline-block;
+        vertical-align: top;
+        margin: 15px 10px;
+        width: 246px;  /* 6px narrower than the ad */
+        height: 84px;  /* 6px shorter than the ad */
+        position: relative;
+        overflow: hidden !important; /* This is the "wall" that hides the bars */
+        background: #000;
+        filter: sepia(1) hue-rotate(90deg) brightness(0.4) contrast(1.2);
+    }
+
+    /* THE "AD" INSIDE THE WINDOW */
+    .ad-sleeve > div, 
+    .ad-sleeve iframe {
+        position: absolute !important;
+        top: -3px !important;  /* Pushes the top scrollbar area off-screen */
+        left: -3px !important; /* Pushes the left edge off-screen */
+        width: 252px !important;
+        height: 90px !important;
+    }
+</style>
+
+<div class="ad-sleeve">
+    <div>
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+        <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+    </div>
+</div>
+
+<div class="ad-sleeve">
+    <div>
+        <script type="text/javascript">tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90"; tc_color_border="#ffffff"; tc_color_title="#AC0101"; tc_color_background="#f8f8f8"; tc_color_text="#000000"; tc_color_url="#7c8e06";</script>
+        <script type="text/javascript" src="//trafficadbar.com/bar/show.js"></script>
+    </div>
+</div>
