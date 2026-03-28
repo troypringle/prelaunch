@@ -18,12 +18,6 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-        
-        /* BACKGROUND PROFESSOR */
-        .bg-professor {
-            position: fixed; top: 50%; right: -5%; width: 40%; max-width: 400px;
-            opacity: 0.5; z-index: -1; transform: translateY(-50%); pointer-events: none;
-        }
 
         .container-main { max-width: 800px; margin: 0 auto; padding: 15px; text-align: center; position: relative; }
 
@@ -40,40 +34,57 @@
             box-shadow: 0 0 13px #ff0000; animation: blink 0.6s infinite;
         }
 
-        /* TIMER BOX - Toned down green background */
+        /* TIMER BOX & STREAK */
         .timer-box { 
-            background: rgba(0, 0, 0, 0.9); /* Mostly Black */
-            border: 1.5px solid #00ff88; 
+            background: rgba(0, 0, 0, 0.4); border: 1.5px solid #00ff88; 
             border-radius: 15px; padding: 15px; margin-bottom: 5px;
             animation: loadZoom 0.9s ease-in-out 6;
         }
-        .timer-label { font-size: clamp(0.9rem, 4vw, 1.4rem); color: #ff0000; font-weight: 800; }
-        .side-arrow { color: #ff0000; padding: 0 10px; font-size: 1.2rem; }
-        #countdown { font-size: clamp(2rem, 10vw, 3.5rem); color: #00ff88; font-family: monospace; font-weight: 900; }
         
-        /* YODA TEXT */
-        .yoda-quote {
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
-            margin-bottom: 20px;
-            text-transform: lowercase;
-            letter-spacing: 1px;
+        /* THE YELLOW STREAK DESIGN */
+        .streak-container {
+            display: inline-block;
+            background: linear-gradient(110deg, transparent 10%, #ffea00 15%, #ffea00 85%, transparent 90%);
+            padding: 2px 20px;
+            border-bottom: 4px solid #ff0000; /* The Red Underline */
+            margin-bottom: 10px;
+        }
+        .timer-label { 
+            font-size: clamp(1rem, 4.5vw, 1.5rem); 
+            color: #000; /* Black text on yellow background */
+            font-weight: 900; 
+            text-transform: uppercase;
         }
 
-        /* VIDEO WRAPPER */
+        #countdown { font-size: clamp(2.5rem, 12vw, 4rem); color: #00ff88; font-family: monospace; font-weight: 900; }
+        
+        /* YODA TEXT - Increased Size */
+        .yoda-quote {
+            font-size: 1.1rem;
+            color: #bbb;
+            font-style: italic;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* VIDEO WRAPPER - Restoration of Guards & Glow */
         .video-wrapper {
             position: relative; width: 100%; padding-bottom: 56.25%;
-            height: 0; border: 0.5px solid #00ff88; border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.15); background: #000; margin-bottom: 19px;
+            height: 0; border: 1px solid #00ff88; border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4); background: #000; margin-bottom: 19px;
             overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px; }
 
+        /* EXIT GUARDS - Blocks YouTube UI */
+        .exit-guard-top { position: absolute; top: 0; left: 0; width: 100%; height: 75px; z-index: 100; cursor: default; }
+        .exit-guard-side { position: absolute; top: 75px; bottom: 50px; width: 25%; z-index: 100; cursor: default; }
+
         .video-cta-overlay {
             position: absolute; bottom: 0; left: 0; right: 0; height: 50px; 
-            background: linear-gradient(to top, rgba(0, 255, 110, 0.2), transparent); 
-            display: flex; align-items: center; justify-content: center; z-index: 20;
+            background: linear-gradient(to top, rgba(0, 255, 110, 0.6), transparent); 
+            display: flex; align-items: center; justify-content: center; z-index: 110;
+            backdrop-filter: blur(2px);
         }
         .video-cta-overlay a {
             color: white; font-size: clamp(14px, 4vw, 18px); font-weight: bold; 
@@ -84,30 +95,27 @@
         .banner-link { display: block; text-decoration: none; margin-top: 10px; }
         .banner-img { 
             width: 100%; height: auto; border-radius: 4px; 
-            box-shadow: 3px 3px 6px rgba(255, 0, 0, 0.4), -2px -2px 9px rgba(0, 255, 136, 0.2);
+            box-shadow: 6px 6px 15px rgba(255, 0, 0, 0.5), -2px -2px 10px rgba(0, 255, 136, 0.3);
         }
 
-        /* TRAFFIC ADBAR */
+        /* TRAFFIC ADBAR - Fixed Bottom Left */
         .adbar-footer { 
-            position: fixed; bottom: 10px; left: 10px; z-index: 100;
-            width: 252px; border-top: none;
+            position: fixed; bottom: 5px; left: 5px; z-index: 200;
+            width: 260px; pointer-events: auto;
         }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @keyframes loadZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        @media (max-width: 1000px) { .bg-professor { display: none; } }
+        @keyframes loadZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
     </style>
 </head>
 <body>
-
-<img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/d730a84e31103c809633215234585c57.png" class="bg-professor" alt="Pointing Professor">
 
 <div class="container-main">
     <h1 class="headline"><span class="red-arrow">➤</span>How Eric Built a Massive Downline <span class="live-dot"></span></h1>
 
     <div class="timer-box">
-        <div class="timer-label">
-            <span class="side-arrow">➤</span>POSITIONING WINDOW CLOSING<span class="side-arrow">◄</span>
+        <div class="streak-container">
+            <div class="timer-label">POSITIONING WINDOW CLOSING</div>
         </div>
         <div id="countdown">00:00:00</div>
     </div>
@@ -115,6 +123,10 @@
     <div class="yoda-quote">"do or do not there is no try" - yoda</div>
 
     <div class="video-wrapper">
+        <div class="exit-guard-top"></div>
+        <div class="exit-guard-side" style="left:0;"></div>
+        <div class="exit-guard-side" style="right:0;"></div>
+
         <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" 
                 frameborder="0" allowfullscreen></iframe>
         
