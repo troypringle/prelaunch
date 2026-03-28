@@ -27,7 +27,9 @@
             text-align: center;
         }
 
-        /* RED TOP TEXT SETTINGS */
+        /* ---------------------------------------------------- */
+        /* SETTING: TOP BANNER (MINIMAL GLOW & LIGHT GREEN BORDER) */
+        /* ---------------------------------------------------- */
         .streak-container {
             display: inline-block;
             width: 100%;
@@ -36,6 +38,10 @@
             background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/f3511efd5936e0986b6fb7034cecc2c7.png') center / 100% 100% no-repeat;
             position: relative;
             margin-bottom: 11px;
+            /* Minimal back-glow and very light green border */
+            border: 1px solid rgba(144, 238, 144, 0.2); 
+            box-shadow: 0 0 10px rgba(144, 238, 144, 0.15); 
+            border-radius: 4px;
         }
         .streak-text {
             font-size: 29px; 
@@ -73,7 +79,7 @@
         }
         .red-arrow { color: #ff0000; margin-right: 6px; }
 
-        /* VIDEO AREA & SHIELDS */
+        /* VIDEO AREA & GLOWS */
         .video-container-box {
             position: relative;
             width: 98%;
@@ -85,17 +91,19 @@
             width: 100%;
             padding-bottom: 56.25%;
             height: 0;
-            border: 1.1px solid #00ff88;
+            /* SETTING: LIGHT GRAY BORDER & INCREASED GREEN GLOW */
+            border: 1.5px solid #d3d3d3; 
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); 
             background: #000;
             overflow: hidden;
-            border-radius: 3px;
+            border-radius: 4px;
         }
         .video-wrapper iframe {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* SHIELD: Blocks top 38% (Your name/Exit links) */
+        /* 38% EXIT SHIELD */
         .touch-shield {
             position: absolute;
             top: 0; left: 0; right: 0; 
@@ -117,13 +125,15 @@
             z-index: 20;
             border-top: 1px solid rgba(255, 0, 0, 0.2);
         }
+
+        /* SETTING: WHITE CTA TEXT */
         .video-cta-overlay a {
-            color: #ffff00; 
+            color: #ffffff; /* Switched to White */
             font-size: 18px;
             font-weight: 900;
             text-decoration: none;
             width: 100%;
-            text-shadow: 0 0 8px rgba(0,0,0,0.8);
+            text-shadow: 0 0 10px rgba(0,0,0,0.9);
         }
 
         .yoda-quote {
@@ -133,10 +143,10 @@
             text-transform: uppercase;
         }
 
-        /* MOBILE ADJUSTMENTS - Fixes font sizes and spacing */
+        /* MOBILE ADJUSTMENTS */
         @media (max-width: 600px) {
-            .streak-text { font-size: 22px; } /* Red text shrunk slightly */
-            .headline { font-size: 22px; }    /* Green text shrunk slightly */
+            .streak-text { font-size: 22px; } 
+            .headline { font-size: 22px; }   
             .streak-container { height: 75px; }
             .spacer-between { height: 15px; }
             .video-cta-overlay a { font-size: 15px; }
