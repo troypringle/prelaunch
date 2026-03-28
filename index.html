@@ -7,7 +7,7 @@
     <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
   
     <style>
-        /* GLOBAL SCROLLBAR - DARKEST GREEN */
+        /* GLOBAL SCROLLBAR */
         html {
             scrollbar-color: #001a00 #000;
             scrollbar-width: thin;
@@ -16,18 +16,10 @@
             width: 8px;
             height: 8px;
         }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #001a00;
-            border: 1px solid #003300;
-        }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #001a00; border: 1px solid #003300; }
 
-        /* BASE RESET */
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Karla', sans-serif;
             background: #000;
@@ -43,34 +35,49 @@
             text-align: center;
         }
 
-        /* HEADLINE */
+        /* HEADLINE WITH GREEN GLOW */
         .headline {
-            font-size: clamp(1.4rem, 6vw, 2.5rem);
+            font-size: clamp(1.45rem, 6.5vw, 2.7rem);
             color: #00ff88;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            line-height: 1.1;
+            margin-bottom: 12px;
+            line-height: 1.05;
+            text-shadow: 
+                0 0 10px #00ff88,
+                0 0 20px #00ff88,
+                0 0 30px rgba(0, 255, 136, 0.6);
         }
         .red-arrow {
             color: #ff0000;
         }
 
-        /* YELLOW BRUSH STROKE WITH YOUR IMAGE - FIXED TRANSPARENCY */
+        /* MLM PRELAUNCH - Smaller Red Text */
+        .mlm-prelaunch {
+            font-size: clamp(1rem, 4vw, 1.45rem);
+            color: #ff0000;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-shadow: 
+                0 0 8px #ff0000,
+                0 0 15px rgba(255, 0, 0, 0.5);
+        }
+
+        /* YELLOW BRUSH IMAGE CONTAINER */
         .streak-container {
             display: inline-block;
             width: 100%;
-            max-width: 720px;                    /* Matches video width closely */
-            height: 95px;                        /* Adjusted for better proportions */
+            max-width: 720px;
+            height: 110px;                    /* Increased for larger text */
             background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/639ecbbf84ff78056065d249d8b955b3.jpg') center/cover no-repeat;
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);   /* Optional subtle depth */
         }
         .timer-label {
-            font-size: clamp(1.2rem, 5.2vw, 1.9rem);
+            font-size: clamp(1.35rem, 6vw, 2.25rem);   /* Significantly enlarged */
             color: #ff0000;
             font-weight: 900;
             text-transform: uppercase;
@@ -80,13 +87,13 @@
             transform: translate(-50%, -50%);
             width: 100%;
             text-align: center;
-            text-shadow: 
-                3px 3px 6px rgba(0, 0, 0, 0.95),
-                -2px -2px 4px rgba(0, 0, 0, 0.8);
             margin: 0;
-            padding: 0 20px;
-            z-index: 2;
-            line-height: 1.2;
+            padding: 0 15px;
+            line-height: 1.1;
+            /* Minimal red glow only - no black shadow */
+            text-shadow: 
+                0 0 6px #ff3333,
+                0 0 12px rgba(255, 50, 50, 0.6);
         }
 
         /* VIDEO WRAPPER */
@@ -99,7 +106,7 @@
             border-radius: 4px;
             box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
             background: #000;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             overflow: hidden;
         }
         .video-wrapper iframe {
@@ -109,12 +116,14 @@
             width: 100%;
             height: 100%;
         }
+
+        /* CLICK TO SECURE - RED WITH GLOW */
         .video-cta-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 50px;
+            height: 55px;
             background: linear-gradient(to top, rgba(0, 255, 110, 0.7), transparent);
             display: flex;
             align-items: center;
@@ -122,11 +131,14 @@
             z-index: 110;
         }
         .video-cta-overlay a {
-            color: white;
-            font-size: 18px;
+            color: #ff0000;
+            font-size: 19px;
             font-weight: bold;
             text-decoration: none;
             width: 100%;
+            text-shadow: 
+                0 0 8px #ff0000,
+                0 0 16px rgba(255, 0, 0, 0.7);
         }
 
         /* YODA TEXT */
@@ -158,18 +170,14 @@
         }
 
         /* ADBAR SCROLLBAR FIX */
-        #tab-container,
-        #tab-container > div,
-        .adbar-footer * {
+        #tab-container, #tab-container > div, .adbar-footer * {
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
-        #tab-container::-webkit-scrollbar,
-        #tab-container > div::-webkit-scrollbar,
+        #tab-container::-webkit-scrollbar, 
+        #tab-container > div::-webkit-scrollbar, 
         .adbar-footer *::-webkit-scrollbar {
             display: none;
-            width: 0;
-            height: 0;
         }
 
         #tab-container {
@@ -182,8 +190,11 @@
 <body>
 <div class="container-main">
     <h1 class="headline"><span class="red-arrow">➤</span>Watch How Eric Builds a Massive Downline</h1>
-   
-    <!-- Yellow Brush Stroke Image with Text Overlay -->
+    
+    <!-- MLM Prelaunch Subheadline -->
+    <div class="mlm-prelaunch">MLM PRELAUNCH</div>
+
+    <!-- Yellow Brush Image with Enlarged Text -->
     <div class="streak-container">
         <div class="timer-label">Time Sensitive New Updates</div>
     </div>
