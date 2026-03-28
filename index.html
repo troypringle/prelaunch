@@ -11,68 +11,76 @@
         body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 10px; position: relative; min-height: 100vh; }
         .wrapper { max-width: 800px; margin: auto; text-align: center; padding-bottom: 120px; }
         
-        /* HEADLINE */
-        .main-hook { font-size: 1.3rem; color: #00ff88; margin: 15px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        /* UPDATED TOP TEXT */
+        .main-hook { 
+            font-size: 1.8rem; 
+            color: #00ff88; 
+            margin: 20px 0; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .live-dot { 
+            height: 12px; width: 12px; background-color: #ff0000; border-radius: 50%; 
+            display: inline-block; margin-right: 10px; animation: blink 1s infinite;
+        }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        /* PULSING TIMER BOX */
+        /* TIMER BOX */
         #timer-wrap { 
-            background: rgba(0, 255, 136, 0.05); 
+            background: rgba(0, 255, 136, 0.03); 
             border: 1px solid #00ff88; 
             border-radius: 12px; 
             padding: 20px; 
-            margin-bottom: 30px;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
-            animation: pulse 2.5s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
         }
         .timer-text { 
-            font-size: 1.6rem; 
+            font-size: 1.7rem; 
             color: #ff0000; 
             text-transform: uppercase; 
             font-weight: 900; 
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            margin-bottom: 5px;
         }
-        #countdown { font-size: 2.8rem; font-weight: 900; color: #00ff88; font-family: monospace; text-shadow: 0 0 5px rgba(0, 255, 136, 0.5); }
+        #countdown { font-size: 3rem; font-weight: 900; color: #00ff88; font-family: monospace; }
 
-        /* VIDEO BOX - Minimal Glow */
+        /* VIDEO BOX - Very minimal glow */
         .video-box {
             position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
-            border: 1px solid #333; border-radius: 8px; box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
-            background: #000; overflow: hidden; margin-bottom: 25px;
+            border: 1px solid #222; border-radius: 8px; box-shadow: none;
+            background: #000; overflow: hidden; margin-bottom: 15px; /* Tighter margin */
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
-        /* THE BANNER - Subtle Glow */
+        /* BANNER - Moved up and glow turned down */
         .bottom-banner-wrap { 
-            box-shadow: 0 0 12px rgba(0, 255, 136, 0.3); 
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.2); 
             border-radius: 18px; 
-            margin-top: 10px;
-            border: 1px solid #222;
+            border: 1px solid #111;
             display: inline-block;
+            margin-top: 0; /* Pulled up closer */
         }
         .matrix-img-btn { width: 100%; max-width: 800px; border-radius: 15px; display: block; }
 
-        /* TRAFFIC ADBAR - Clean & Out of the way */
+        /* TRAFFIC ADBAR - SCROLLBAR KILLER */
         #tab-container {
             position: absolute;
             bottom: 20px;
-            left: 15px;
+            left: 10px;
             z-index: 10;
+            width: 252px;
+            height: 90px;
+            overflow: hidden; /* This kills the nasty scrollbar */
             background: transparent;
-            overflow: hidden; /* Removes scrollbar */
         }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="main-hook">⚠️ Watch How Eric Built a Massive Downline ⚠️</div>
+    <div class="main-hook"><span class="live-dot"></span>Watch How Eric Built a Massive Downline</div>
 
     <div id="timer-wrap">
         <div class="timer-text">POSITIONING WINDOW CLOSING IN:</div>
@@ -87,7 +95,7 @@
         <div style="position: absolute; top: 75px; bottom: 45px; left: 0; width: 25%; z-index: 20;"></div>
         <div style="position: absolute; top: 75px; bottom: 45px; right: 0; width: 25%; z-index: 20;"></div>
 
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 50px; background: linear-gradient(to top, rgba(0, 255, 110, 0.8), transparent); display: flex; align-items: center; justify-content: center; z-index: 30;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 50px; background: linear-gradient(to top, rgba(0, 255, 110, 0.6), transparent); display: flex; align-items: center; justify-content: center; z-index: 30;">
             <a href="https://troypringle2.aimatrixspillover.com/" class="track-link" target="_blank" 
                style="color: white; font-size: 18px; font-weight: bold; text-decoration: none; text-shadow: 2px 2px 4px #000; width: 100%; text-align: center;">
                 🔥 CLICK TO SECURE YOUR SPOT 🔥
@@ -114,7 +122,7 @@
 <img src="/api/v1/t" style="display:none;" alt="" onerror="this.style.display='none'">
 
 <script>
-    // 1. Link Guard
+    // Link Guard
     (function() {
         var params = window.location.search;
         if (params) {
@@ -125,7 +133,7 @@
         }
     })();
 
-    // 2. Timer Logic
+    // Timer Logic
     function updateTimer() {
         const now = new Date();
         const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
