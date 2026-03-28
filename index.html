@@ -7,11 +7,11 @@
     <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
-        /* FORCED DARK GREEN SCROLLBAR */
-        :root { scrollbar-color: #002200 #000; scrollbar-width: thin; }
+        /* SCROLLBAR - FORCED DARKEST GREEN */
+        html { scrollbar-color: #001a00 #000; scrollbar-width: thin; }
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #002200; border-radius: 2px; }
+        ::-webkit-scrollbar-thumb { background: #001a00; border: 1px solid #003300; }
 
         /* BASE RESET */
         * { box-sizing: border-box; }
@@ -24,9 +24,8 @@
             overflow-x: hidden;
         }
 
-        /* Responsive Container - wider on desktop */
         .container-main { 
-            max-width: 900px; 
+            max-width: 800px; /* Aligns everything to the video/headline width */
             margin: 0 auto; 
             padding: 20px 15px; 
             text-align: center; 
@@ -34,100 +33,96 @@
 
         /* HEADLINE */
         .headline { 
-            font-size: clamp(1.4rem, 6vw, 2.8rem); 
+            font-size: clamp(1.4rem, 6vw, 2.5rem); 
             color: #00ff88; font-weight: 900; text-transform: uppercase; 
-            margin-bottom: 25px; line-height: 1.1; 
+            margin-bottom: 15px; line-height: 1.1; 
         }
         .red-arrow { color: #ff0000; }
 
-        /* JAGGED PAINTED STREAK */
+        /* PAINTED BRUSH STROKE - Width matches Headline */
         .streak-container {
             display: inline-block;
             background: #ffea00;
+            width: 100%; /* Matches headline/video width */
+            max-width: 600px;
             position: relative;
-            padding: 15px 50px;
-            margin-bottom: 15px;
-            /* Creating the jagged/painted edge look */
-            clip-path: polygon(
-                2% 15%, 15% 5%, 35% 12%, 65% 2%, 85% 10%, 98% 5%, 
-                100% 45%, 95% 85%, 75% 95%, 45% 88%, 20% 98%, 0% 80%
-            );
+            padding: 10px 0;
+            margin-bottom: 5px;
+            /* SVG Mask for real jagged edges */
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L5 2 L15 6 L30 1 L50 5 L70 0 L85 4 L100 1 L98 15 L85 19 L65 14 L40 20 L15 16 L0 18 Z" fill="black"/></svg>');
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L5 2 L15 6 L30 1 L50 5 L70 0 L85 4 L100 1 L98 15 L85 19 L65 14 L40 20 L15 16 L0 18 Z" fill="black"/></svg>');
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
         }
         .timer-label { 
-            font-size: clamp(1.2rem, 5.5vw, 2.2rem); 
+            font-size: clamp(1.1rem, 5vw, 1.8rem); 
             color: #ff0000; font-weight: 900; 
             text-transform: uppercase;
-            letter-spacing: -1px; /* Tighter marketing look */
         }
 
-        /* TIMER BOX - Clean & Responsive */
+        /* TIMER BOX - Red Counter, Narrowed */
         .timer-box { 
             background: transparent; 
             border: 1px solid #1a1a1a; 
-            max-width: 550px; 
-            margin: 0 auto 25px auto;
-            padding: 20px;
+            max-width: 600px; 
+            margin: 0 auto 20px auto;
+            padding: 10px;
         }
         #countdown { 
-            font-size: clamp(3rem, 15vw, 5.5rem); 
-            color: #00ff88; font-family: monospace; font-weight: 900; 
-            line-height: 1;
+            font-size: clamp(2rem, 12vw, 3.5rem); /* Slightly smaller as requested */
+            color: #ff0000; /* Swapped to RED */
+            font-family: monospace; font-weight: 900; 
+            line-height: 1.2;
         }
         
         /* VIDEO WRAPPER */
         .video-wrapper {
             position: relative; width: 100%; padding-bottom: 56.25%;
             height: 0; border: 1.5px solid #00ff88; border-radius: 4px;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.3); background: #000; margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); background: #000; margin-bottom: 10px;
             overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         .video-cta-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 55px; 
+            position: absolute; bottom: 0; left: 0; right: 0; height: 50px; 
             background: linear-gradient(to top, rgba(0, 255, 110, 0.7), transparent); 
             display: flex; align-items: center; justify-content: center; z-index: 110;
         }
-        .video-cta-overlay a { color: white; font-size: 20px; font-weight: bold; text-decoration: none; width: 100%; }
+        .video-cta-overlay a { color: white; font-size: 18px; font-weight: bold; text-decoration: none; width: 100%; }
 
         /* YODA TEXT */
         .yoda-quote {
-            font-size: clamp(1.2rem, 5vw, 1.8rem);
-            color: #666;
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            color: #555;
             font-style: italic;
-            margin: 20px 0 30px 0;
-            letter-spacing: 2px;
+            margin: 10px 0 25px 0;
+            letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 700;
         }
 
-        /* BANNER */
+        /* BANNER - Wider to match video */
         .banner-img { 
             width: 100%; 
-            max-width: 750px;
+            max-width: 800px; /* Matches container width */
             height: auto; 
             border-radius: 4px; 
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         /* TRAFFIC ADBAR */
         .adbar-footer { 
-            padding: 20px 10px;
+            padding: 20px 0;
             display: flex;
-            justify-content: flex-start;
-        }
-
-        /* Mobile specific tweaks */
-        @media (max-width: 600px) {
-            .container-main { padding: 10px; }
-            .streak-container { padding: 10px 25px; }
+            justify-content: center;
         }
     </style>
 </head>
 <body>
 
 <div class="container-main">
-    <h1 class="headline"><span class="red-arrow">➤</span>Watch How Eric Built a Massive Downline</h1>
+    <h1 class="headline"><span class="red-arrow">➤</span>How Eric Built a Massive Downline</h1>
 
     <div class="timer-box">
         <div class="streak-container">
@@ -161,33 +156,167 @@
     </div>
 </div>
 
-<script>
-    (function() {
-        var params = window.location.search;
-        if (params) {
-            document.querySelectorAll('a').forEach(function(link) {
-                if(link.href.includes('aimatrixspillover')) {
-                    var sep = link.href.indexOf('?') !== -1 ? '&' : '?';
-                    link.href = link.href + params.replace('?', sep);
-                }
-            });
-        }
-    })();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Official PRELAUNCH By Joel Therien My Sponsors Downline</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* SCROLLBAR - FORCED DARKEST GREEN */
+        html { scrollbar-color: #001a00 #000; scrollbar-width: thin; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #001a00; border: 1px solid #003300; }
 
-    function startTimer() {
-        setInterval(() => {
-            const now = new Date();
-            const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-            const diff = tomorrow - now;
-            const h = Math.floor(diff / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000);
-            const s = Math.floor((diff % 60000) / 1000);
-            document.getElementById("countdown").innerText = 
-                `${h < 10 ? '0'+h : h}:${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
-        }, 1000);
-    }
-    startTimer();
-</script>
+        /* BASE RESET */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Karla', sans-serif; 
+            background: #000; 
+            color: white; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+        }
+
+        .container-main { 
+            max-width: 800px; /* Aligns everything to the video/headline width */
+            margin: 0 auto; 
+            padding: 20px 15px; 
+            text-align: center; 
+        }
+
+        /* HEADLINE */
+        .headline { 
+            font-size: clamp(1.4rem, 6vw, 2.5rem); 
+            color: #00ff88; font-weight: 900; text-transform: uppercase; 
+            margin-bottom: 15px; line-height: 1.1; 
+        }
+        .red-arrow { color: #ff0000; }
+
+        /* PAINTED BRUSH STROKE - Width matches Headline */
+        .streak-container {
+            display: inline-block;
+            background: #ffea00;
+            width: 100%; /* Matches headline/video width */
+            max-width: 600px;
+            position: relative;
+            padding: 10px 0;
+            margin-bottom: 5px;
+            /* SVG Mask for real jagged edges */
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L5 2 L15 6 L30 1 L50 5 L70 0 L85 4 L100 1 L98 15 L85 19 L65 14 L40 20 L15 16 L0 18 Z" fill="black"/></svg>');
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L5 2 L15 6 L30 1 L50 5 L70 0 L85 4 L100 1 L98 15 L85 19 L65 14 L40 20 L15 16 L0 18 Z" fill="black"/></svg>');
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+        .timer-label { 
+            font-size: clamp(1.1rem, 5vw, 1.8rem); 
+            color: #ff0000; font-weight: 900; 
+            text-transform: uppercase;
+        }
+
+        /* TIMER BOX - Red Counter, Narrowed */
+        .timer-box { 
+            background: transparent; 
+            border: 1px solid #1a1a1a; 
+            max-width: 600px; 
+            margin: 0 auto 20px auto;
+            padding: 10px;
+        }
+        #countdown { 
+            font-size: clamp(2rem, 12vw, 3.5rem); /* Slightly smaller as requested */
+            color: #ff0000; /* Swapped to RED */
+            font-family: monospace; font-weight: 900; 
+            line-height: 1.2;
+        }
+        
+        /* VIDEO WRAPPER */
+        .video-wrapper {
+            position: relative; width: 100%; padding-bottom: 56.25%;
+            height: 0; border: 1.5px solid #00ff88; border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); background: #000; margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .video-cta-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 50px; 
+            background: linear-gradient(to top, rgba(0, 255, 110, 0.7), transparent); 
+            display: flex; align-items: center; justify-content: center; z-index: 110;
+        }
+        .video-cta-overlay a { color: white; font-size: 18px; font-weight: bold; text-decoration: none; width: 100%; }
+
+        /* YODA TEXT */
+        .yoda-quote {
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            color: #555;
+            font-style: italic;
+            margin: 10px 0 25px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* BANNER - Wider to match video */
+        .banner-img { 
+            width: 100%; 
+            max-width: 800px; /* Matches container width */
+            height: auto; 
+            border-radius: 4px; 
+            margin-bottom: 30px;
+        }
+
+        /* TRAFFIC ADBAR */
+        .adbar-footer { 
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-main">
+    <h1 class="headline"><span class="red-arrow">➤</span>How Eric Built a Massive Downline</h1>
+
+    <div class="timer-box">
+        <div class="streak-container">
+            <div class="timer-label">POSITIONING WINDOW CLOSING</div>
+        </div>
+        <div id="countdown">00:00:00</div>
+    </div>
+    
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+        <div class="video-cta-overlay">
+            <a href="https://troypringle2.aimatrixspillover.com/" target="_blank">🔥 CLICK TO SECURE YOUR SPOT 🔥</a>
+        </div>
+    </div>
+
+    <div class="yoda-quote">"do or do not there is no try" - yoda</div>
+
+    <a href="https://troypringle2.aimatrixspillover.com/">
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="banner-img" alt="Secure Your Spot">
+    </a>
+
+    <div class="adbar-footer">
+        <div id="tab-container">
+            <script type="text/javascript">
+                tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
+                tc_color_border="#000000"; tc_color_title="#00cc66"; tc_color_background="#000000"; 
+                tc_color_text="#00cc66"; tc_color_url="#00aa44";
+            </script>
+            <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
 
 </body>
 </html>
