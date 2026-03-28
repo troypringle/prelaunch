@@ -7,21 +7,14 @@
     <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
-        /* FORCED DARK GREEN SCROLLBAR (Cross-Browser) */
-        :root {
-            scrollbar-color: #002200 #000000; /* Standard: Thumb, Track */
-            scrollbar-width: thin;
-        }
-        ::-webkit-scrollbar { width: 10px; height: 10px; }
-        ::-webkit-scrollbar-track { background: #000 !important; }
-        ::-webkit-scrollbar-thumb { 
-            background: #002200 !important; /* Deepest Forest Green */
-            border: 1px solid #001100;
-            border-radius: 4px;
-        }
+        /* FORCED DARK GREEN SCROLLBAR */
+        :root { scrollbar-color: #002200 #000; scrollbar-width: thin; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #002200; border-radius: 2px; }
 
         /* BASE RESET */
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; }
         body { 
             font-family: 'Karla', sans-serif; 
             background: #000; 
@@ -31,76 +24,103 @@
             overflow-x: hidden;
         }
 
-        .container-main { max-width: 600px; margin: 0 auto; padding: 10px; text-align: center; }
+        /* Responsive Container - wider on desktop */
+        .container-main { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px 15px; 
+            text-align: center; 
+        }
 
         /* HEADLINE */
         .headline { 
-            font-size: clamp(1.2rem, 5.5vw, 2.2rem); 
+            font-size: clamp(1.4rem, 6vw, 2.8rem); 
             color: #00ff88; font-weight: 900; text-transform: uppercase; 
-            margin-bottom: 20px; line-height: 1.1; 
+            margin-bottom: 25px; line-height: 1.1; 
         }
         .red-arrow { color: #ff0000; }
 
-        /* CHOPPY ROUNDED YELLOW STREAK */
+        /* JAGGED PAINTED STREAK */
         .streak-container {
             display: inline-block;
             background: #ffea00;
-            /* Choppy Rounded Corners */
-            border-radius: 60px 25px 55px 30px; 
-            padding: 12px 35px;
-            margin-bottom: 12px;
+            position: relative;
+            padding: 15px 50px;
+            margin-bottom: 15px;
+            /* Creating the jagged/painted edge look */
+            clip-path: polygon(
+                2% 15%, 15% 5%, 35% 12%, 65% 2%, 85% 10%, 98% 5%, 
+                100% 45%, 95% 85%, 75% 95%, 45% 88%, 20% 98%, 0% 80%
+            );
         }
         .timer-label { 
-            font-size: clamp(1.1rem, 5vw, 1.8rem); 
+            font-size: clamp(1.2rem, 5.5vw, 2.2rem); 
             color: #ff0000; font-weight: 900; 
             text-transform: uppercase;
+            letter-spacing: -1px; /* Tighter marketing look */
         }
 
-        /* NARROW TIMER BOX - Minimal Border */
+        /* TIMER BOX - Clean & Responsive */
         .timer-box { 
             background: transparent; 
-            border: 1px solid #111; /* Almost invisible dark border */
-            max-width: 400px; /* Narrower for mobile focus */
-            margin: 0 auto 20px auto;
-            padding: 15px 10px;
+            border: 1px solid #1a1a1a; 
+            max-width: 550px; 
+            margin: 0 auto 25px auto;
+            padding: 20px;
         }
-        #countdown { font-size: clamp(2.5rem, 12vw, 4rem); color: #00ff88; font-family: monospace; font-weight: 900; }
+        #countdown { 
+            font-size: clamp(3rem, 15vw, 5.5rem); 
+            color: #00ff88; font-family: monospace; font-weight: 900; 
+            line-height: 1;
+        }
         
         /* VIDEO WRAPPER */
         .video-wrapper {
             position: relative; width: 100%; padding-bottom: 56.25%;
-            height: 0; border: 1.5px solid #00ff88; border-radius: 6px;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); background: #000; margin-bottom: 10px;
+            height: 0; border: 1.5px solid #00ff88; border-radius: 4px;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.3); background: #000; margin-bottom: 15px;
             overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         .video-cta-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 50px; 
+            position: absolute; bottom: 0; left: 0; right: 0; height: 55px; 
             background: linear-gradient(to top, rgba(0, 255, 110, 0.7), transparent); 
             display: flex; align-items: center; justify-content: center; z-index: 110;
         }
-        .video-cta-overlay a { color: white; font-size: 18px; font-weight: bold; text-decoration: none; width: 100%; }
+        .video-cta-overlay a { color: white; font-size: 20px; font-weight: bold; text-decoration: none; width: 100%; }
 
         /* YODA TEXT */
         .yoda-quote {
-            font-size: clamp(1rem, 4vw, 1.4rem);
-            color: #777;
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            color: #666;
             font-style: italic;
-            margin: 15px 0 25px 0;
-            letter-spacing: 1px;
+            margin: 20px 0 30px 0;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 700;
         }
 
-        /* BANNER - No Glow */
-        .banner-img { width: 100%; height: auto; border-radius: 8px; box-shadow: none; }
+        /* BANNER */
+        .banner-img { 
+            width: 100%; 
+            max-width: 750px;
+            height: auto; 
+            border-radius: 4px; 
+            margin-bottom: 40px;
+        }
 
-        /* TRAFFIC ADBAR - Visibility Tweak */
-        .adbar-ghost-zone { 
-            margin-top: 60px;
-            padding: 10px;
+        /* TRAFFIC ADBAR */
+        .adbar-footer { 
+            padding: 20px 10px;
             display: flex;
             justify-content: flex-start;
+        }
+
+        /* Mobile specific tweaks */
+        @media (max-width: 600px) {
+            .container-main { padding: 10px; }
+            .streak-container { padding: 10px 25px; }
         }
     </style>
 </head>
@@ -129,12 +149,12 @@
         <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="banner-img" alt="Secure Your Spot">
     </a>
 
-    <div class="adbar-ghost-zone">
+    <div class="adbar-footer">
         <div id="tab-container">
             <script type="text/javascript">
                 tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
-                tc_color_border="#000000"; tc_color_title="#008833"; tc_color_background="#000000"; 
-                tc_color_text="#008833"; tc_color_url="#005522";
+                tc_color_border="#000000"; tc_color_title="#00cc66"; tc_color_background="#000000"; 
+                tc_color_text="#00cc66"; tc_color_url="#00aa44";
             </script>
             <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
         </div>
