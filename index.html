@@ -7,11 +7,18 @@
     <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
-        /* DARK GREEN CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar { width: 10px; }
+        /* UNIVERSAL MATRIX SCROLLBAR */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #004d1a #000000;
+        }
+        ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #004d26; border-radius: 5px; border: 1px solid #00ff88; }
-        ::-webkit-scrollbar-thumb:hover { background: #007038; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #004d1a, #00ff88); 
+            border-radius: 10px; 
+            border: 2px solid #000;
+        }
 
         /* BASE RESET */
         * { box-sizing: border-box; }
@@ -25,103 +32,96 @@
             min-height: 100vh;
         }
 
-        .container-main { max-width: 800px; margin: 0 auto; padding: 15px; text-align: center; position: relative; }
+        .container-main { max-width: 850px; margin: 0 auto; padding: 15px; text-align: center; position: relative; }
 
         /* HEADLINE */
         .headline { 
-            font-size: clamp(1.3rem, 5vw, 2.5rem); 
+            font-size: clamp(1.4rem, 6vw, 2.8rem); 
             color: #00ff88; font-weight: 900; text-transform: uppercase; 
-            margin: 19px 0; line-height: 1.1; 
+            margin-bottom: 25px; line-height: 1.1; 
         }
         .red-arrow { color: #ff0000; margin-right: 8px; }
-        .live-dot { 
-            height: 24px; width: 24px; background: #ff0000; border-radius: 50%; 
-            display: inline-block; margin-left: 13px; vertical-align: middle;
-            box-shadow: 0 0 13px #ff0000; animation: blink 0.6s infinite;
-        }
 
-        /* TIMER BOX - Cleaned up background bleed */
-        .timer-box { 
-            background: transparent; 
-            border: 1.5px solid #00ff88; 
-            border-radius: 15px; padding: 20px; margin-bottom: 20px;
-            animation: loadZoom 0.9s ease-in-out 6;
-        }
-        
-        /* YELLOW STREAK - Text back to RED */
+        /* THE MASSIVE YELLOW STREAK */
         .streak-container {
             display: inline-block;
-            background: linear-gradient(110deg, transparent 5%, #ffea00 15%, #ffea00 85%, transparent 95%);
-            padding: 5px 25px;
+            background: #ffea00;
+            /* Angled edges for that "design" look */
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+            padding: 15px 40px;
             margin-bottom: 15px;
-            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(255, 234, 0, 0.2);
         }
         .timer-label { 
-            font-size: clamp(1.1rem, 5vw, 1.6rem); 
-            color: #ff0000; /* Back to Red */
+            font-size: clamp(1.3rem, 6vw, 2.2rem); 
+            color: #ff0000; 
             font-weight: 900; 
             text-transform: uppercase;
-            text-shadow: 1px 1px 0px #fff; /* Makes red pop on yellow */
+            letter-spacing: 1px;
+            /* Subtle dark stroke to prevent bleed */
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
         }
 
-        #countdown { font-size: clamp(2.5rem, 12vw, 4rem); color: #00ff88; font-family: monospace; font-weight: 900; }
+        .timer-box { 
+            background: transparent; 
+            border: 2px solid #00ff88; 
+            border-radius: 20px; padding: 25px 15px; margin-bottom: 20px;
+        }
+        #countdown { font-size: clamp(3rem, 15vw, 5rem); color: #00ff88; font-family: monospace; font-weight: 900; }
         
         /* VIDEO WRAPPER */
         .video-wrapper {
             position: relative; width: 100%; padding-bottom: 56.25%;
-            height: 0; border: 1px solid #00ff88; border-radius: 4px;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4); background: #000; margin-bottom: 10px;
+            height: 0; border: 1.5px solid #00ff88; border-radius: 6px;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4); background: #000; margin-bottom: 10px;
             overflow: hidden;
         }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* EXIT GUARDS */
-        .exit-guard-top { position: absolute; top: 0; left: 0; width: 100%; height: 75px; z-index: 100; }
-        .exit-guard-side { position: absolute; top: 75px; bottom: 50px; width: 25%; z-index: 100; }
+        .exit-guard-top { position: absolute; top: 0; left: 0; width: 100%; height: 80px; z-index: 100; }
+        .exit-guard-side { position: absolute; top: 80px; bottom: 50px; width: 25%; z-index: 100; }
 
         .video-cta-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 50px; 
-            background: linear-gradient(to top, rgba(0, 255, 110, 0.6), transparent); 
+            position: absolute; bottom: 0; left: 0; right: 0; height: 55px; 
+            background: linear-gradient(to top, rgba(0, 255, 110, 0.7), transparent); 
             display: flex; align-items: center; justify-content: center; z-index: 110;
         }
-        .video-cta-overlay a {
-            color: white; font-size: clamp(14px, 4vw, 18px); font-weight: bold; 
-            text-decoration: none; text-shadow: 2px 2px 4px #000; width: 100%;
-        }
+        .video-cta-overlay a { color: white; font-size: 20px; font-weight: bold; text-decoration: none; width: 100%; }
 
-        /* YODA TEXT - Darker/Subtle below video */
+        /* YODA TEXT - WIDER & STANDS OUT */
         .yoda-quote {
-            font-size: 1.2rem;
-            color: #555; /* Darker gray */
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            color: #777;
             font-style: italic;
-            margin: 15px 0 25px 0;
-            letter-spacing: 0.5px;
+            margin: 20px 0 35px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
         }
 
         /* BANNER */
-        .banner-link { display: block; text-decoration: none; margin-top: 10px; }
         .banner-img { 
-            width: 100%; height: auto; border-radius: 4px; 
-            box-shadow: 6px 6px 15px rgba(255, 0, 0, 0.5), -2px -2px 10px rgba(0, 255, 136, 0.3);
+            width: 100%; height: auto; border-radius: 8px; 
+            box-shadow: 8px 8px 20px rgba(255, 0, 0, 0.5), -4px -4px 15px rgba(0, 255, 136, 0.3);
         }
 
-        /* TRAFFIC ADBAR - SCROLLING (NOT ANCHORED) */
-        .adbar-holder { 
-            margin-top: 50px;
+        /* TRAFFIC ADBAR - GHOST FOOTER */
+        .adbar-ghost-zone { 
+            margin-top: 80px;
+            padding: 20px;
             display: flex;
             justify-content: flex-start;
-            padding-left: 10px;
-            width: 100%;
+            opacity: 0.7; /* Less visible as requested */
         }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @keyframes loadZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
     </style>
 </head>
 <body>
 
 <div class="container-main">
-    <h1 class="headline"><span class="red-arrow">➤</span>Watch How Eric Built a Massive Downline <span class="live-dot"></span></h1>
+    <h1 class="headline"><span class="red-arrow">➤</span>How Eric Built a Massive Downline</h1>
 
     <div class="timer-box">
         <div class="streak-container">
@@ -134,30 +134,24 @@
         <div class="exit-guard-top"></div>
         <div class="exit-guard-side" style="left:0;"></div>
         <div class="exit-guard-side" style="right:0;"></div>
-
-        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" 
-                frameborder="0" allowfullscreen></iframe>
-        
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
         <div class="video-cta-overlay">
-            <a href="https://troypringle2.aimatrixspillover.com/" class="track-link" target="_blank">
-                🔥 CLICK TO SECURE YOUR SPOT 🔥
-            </a>
+            <a href="https://troypringle2.aimatrixspillover.com/" target="_blank">🔥 CLICK TO SECURE YOUR SPOT 🔥</a>
         </div>
     </div>
 
     <div class="yoda-quote">"do or do not there is no try" - yoda</div>
 
     <a href="https://troypringle2.aimatrixspillover.com/" class="banner-link">
-        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" 
-             class="banner-img" alt="Secure Your Spot">
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="banner-img" alt="Secure Your Spot">
     </a>
 
-    <div class="adbar-holder">
+    <div class="adbar-ghost-zone">
         <div id="tab-container">
             <script type="text/javascript">
                 tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
-                tc_color_border="#000000"; tc_color_title="#004d26"; tc_color_background="#000000"; 
-                tc_color_text="#004d26"; tc_color_url="#002211";
+                tc_color_border="#000000"; tc_color_title="#003311"; tc_color_background="#000000"; 
+                tc_color_text="#003311"; tc_color_url="#001100";
             </script>
             <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
         </div>
