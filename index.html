@@ -6,41 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     
     <style>
-        /* INTERNAL STYLING ONLY - NO EXTERNAL CALLS */
         * { box-sizing: border-box; }
         body {
             background: #000;
             color: white;
-            margin: 0; padding: 10px; /* Space for the page border */
+            margin: 0; padding: 12px;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
         }
 
-        /* THE MAIN PAGE CONTAINER / BORDER */
+        /* OUTER PAGE BORDER - Faint and Dark */
         .page-border {
             width: 100%;
             max-width: 820px;
-            border: 2px solid #00ff88; /* Matching green border */
-            border-radius: 8px;
-            padding: 10px;
+            border: 1px solid #222; /* Very faint dark border */
+            border-radius: 10px;
+            padding: 12px;
             background: #050505;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.1); /* Subtle glow */
             text-align: center;
         }
 
-        /* YELLOW BRUSH STREAK */
+        /* ---------------------------------------------------- */
+        /* SETTING: YELLOW TOP BANNER SIZE                      */
+        /* ---------------------------------------------------- */
         .streak-container {
             display: inline-block;
             width: 100%;
-            max-width: 600px;
-            height: 65px; 
+            max-width: 650px; /* Increased from 600px */
+            height: 85px;      /* Increased from 65px */
             background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/f3511efd5936e0986b6fb7034cecc2c7.png') center / 100% 100% no-repeat;
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
+
+        /* ---------------------------------------------------- */
+        /* SETTING: TOP TEXT SIZE (URGENCY LINE)                */
+        /* ---------------------------------------------------- */
         .streak-text {
-            font-size: 18px;
+            font-size: 22px; /* Increased size */
             color: #ff0000;
             font-weight: 900;
             text-transform: uppercase;
@@ -49,31 +53,37 @@
             transform: translate(-50%, -50%);
             width: 90%;
             margin: 0;
+            letter-spacing: 0.5px;
         }
 
-        /* BANNER */
         .banner-img {
             width: 100%;
             max-width: 780px;
             height: auto;
             border-radius: 4px;
-            margin-bottom: 8px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
-        /* MLM SUB-HEADLINE */
+        /* ---------------------------------------------------- */
+        /* SETTING: SPACE BETWEEN BANNER AND WATCH NOW TEXT     */
+        /* ---------------------------------------------------- */
+        .spacer-between {
+            height: 25px; /* Adjust this to increase/decrease gap */
+        }
+
+        /* ---------------------------------------------------- */
+        /* SETTING: WATCH HOW TEXT SIZE                         */
+        /* ---------------------------------------------------- */
         .headline {
-            font-size: 13px; /* Smaller, fixed size */
+            font-size: 18px; /* Increased size */
             color: #00ff88;
             font-weight: 700;
             text-transform: uppercase;
-            margin: 5px 0 12px 0;
+            margin-bottom: 15px;
             display: block;
-            letter-spacing: 0.5px;
         }
-        .red-arrow { color: #ff0000; margin-right: 3px; }
+        .red-arrow { color: #ff0000; margin-right: 5px; }
 
         /* VIDEO AREA */
         .video-container-box {
@@ -96,19 +106,17 @@
             top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* 1. EXIT BLOCKER (Touch Shield) */
+        /* EXIT BLOCKERS & OVERLAYS */
         .touch-shield {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 50px;
             z-index: 10;
             background: rgba(0,0,0,0);
         }
-
-        /* 2. BOTTOM CTA OVERLAY */
         .video-cta-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 48px;
+            height: 50px;
             background: #00ff6e; 
             display: flex;
             align-items: center;
@@ -117,7 +125,7 @@
         }
         .video-cta-overlay a {
             color: #ff0000;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 900;
             text-decoration: none;
             width: 100%;
@@ -126,7 +134,7 @@
         .yoda-quote {
             font-size: 10px;
             color: #333;
-            margin-top: 5px;
+            margin-top: 10px;
             text-transform: uppercase;
         }
     </style>
@@ -142,6 +150,8 @@
         <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png"
              class="banner-img" alt="Secure Your Spot">
     </a>
+
+    <div class="spacer-between"></div>
 
     <span class="headline">
         <span class="red-arrow">➤</span> Watch How Eric Builds a Massive Downline
@@ -164,7 +174,6 @@
 </div>
 
 <script>
-    // URL Parameter Passing Script
     (function() {
         var params = window.location.search;
         if (params) {
