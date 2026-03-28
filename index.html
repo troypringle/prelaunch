@@ -27,9 +27,7 @@
             text-align: center;
         }
 
-        /* ---------------------------------------------------- */
-        /* SETTING: TOP YELLOW BANNER (NO GLOW/NO BORDER)       */
-        /* ---------------------------------------------------- */
+        /* TOP RED BANNER (CLEAN) */
         .streak-container {
             display: inline-block;
             width: 100%;
@@ -38,7 +36,6 @@
             background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/f3511efd5936e0986b6fb7034cecc2c7.png') center / 100% 100% no-repeat;
             position: relative;
             margin-bottom: 11px;
-            /* Glow and border removed here */
             border: none;
             box-shadow: none;
             border-radius: 4px;
@@ -56,17 +53,17 @@
         }
 
         /* ---------------------------------------------------- */
-        /* SETTING: MAIN BANNER (MINT BORDER/MINIMAL GLOW UNDER) */
+        /* SETTING: MAIN BANNER (MINT GLOW INCREASED BY 0.3)      */
         /* ---------------------------------------------------- */
         .banner-img-container {
             display: block;
             margin: 0 auto;
             max-width: 778px;
-            /* Added mint border and minimal glow here */
             border: 1px solid rgba(144, 238, 144, 0.2); 
-            box-shadow: 0 0 10px rgba(144, 238, 144, 0.15); 
+            /* Glow opacity increased from 0.15 to 0.45 (+0.3) */
+            box-shadow: 0 0 15px rgba(144, 238, 144, 0.45); 
             border-radius: 6px;
-            overflow: hidden; /* Keeps image tight to border */
+            overflow: hidden; 
         }
         .banner-img {
             width: 100%;
@@ -78,10 +75,12 @@
             height: 25px; 
         }
 
-        /* GREEN HEADLINE SETTINGS */
+        /* ---------------------------------------------------- */
+        /* SETTING: WATCH HOW TEXT (CHANGED FROM GREEN TO WHITE) */
+        /* ---------------------------------------------------- */
         .headline {
             font-size: 29px; 
-            color: #00ff88;
+            color: #ffffff; /* FIXED: Now White */
             font-weight: 800;
             text-transform: uppercase;
             margin-bottom: 21px;
@@ -101,10 +100,12 @@
             width: 100%;
             padding-bottom: 56.25%;
             height: 0;
-            /* SETTING: LIGHT GRAY BORDER & SUBTLE GREEN GLOW */
-            border: 1.5px solid #d3d3d3; 
-            /* Glow significantly reduced to 8px from 20px */
-            box-shadow: 0 0 8px rgba(0, 255, 136, 0.2); 
+            /* ---------------------------------------------------- */
+            /* SETTING: DARK GREEN VIDEO BORDER & INCREASED GLOW     */
+            /* ---------------------------------------------------- */
+            border: 1.5px solid #004d26; /* FIXED: Dark Green Border */
+            /* Glow opacity increased from 0.2 to 0.5 (+0.3) */
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5); 
             background: #000;
             overflow: hidden;
             border-radius: 4px;
