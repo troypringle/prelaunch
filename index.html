@@ -13,19 +13,19 @@
         
         .container-main { max-width: 800px; margin: 0 auto; padding: 15px; text-align: center; }
 
-        /* HEADLINE - Scalable Text */
+        /* HEADLINE */
         .headline { 
-            font-size: clamp(1.3rem, 3vw, 3rem); 
-            color: #00ff88; font-weight: 696; text-transform: uppercase; 
-            margin: 19px 0; line-height: 1.1; 
+            font-size: clamp(1.3rem, 5vw, 2.5rem); 
+            color: #00ff88; font-weight: 900; text-transform: uppercase; 
+            margin: 19px 0; line-height: 0.9; 
         }
         .live-dot { 
-            height: clamp(19px, 6vw, 29px); width: clamp(19px, 6vw, 29px); 
-            background: #ff0000; border-radius: 50%; display: inline-block; 
-            margin-left: 13px; box-shadow: 0 0 13px #ff0000; animation: blink 0.6s infinite;
+            height: 24px; width: 24px; background: #ff0000; border-radius: 50%; 
+            display: inline-block; margin-left: 13px; vertical-align: middle;
+            box-shadow: 0 0 13px #ff0000; animation: blink 0.6s infinite;
         }
 
-        /* TIMER BOX - Prevents Text Overlap */
+        /* TIMER BOX - 6 Zoom Effect */
         .timer-box { 
             background: rgba(0, 255, 136, 0.05); border: 2px solid #00ff88; 
             border-radius: 15px; padding: 15px; margin-bottom: 20px;
@@ -34,34 +34,55 @@
         .timer-label { font-size: clamp(0.9rem, 4vw, 1.4rem); color: #ff0000; font-weight: 800; }
         #countdown { font-size: clamp(2rem, 10vw, 3.5rem); color: #00ff88; font-family: monospace; font-weight: 900; }
 
-        /* VIDEO CONTAINER - The 16:9 Fix */
+        /* VIDEO WRAPPER WITH GLOW & EXITS */
         .video-wrapper {
-            position: relative; width: 100%; padding-bottom: 56.25%; /* Fixed Ratio */
-            height: 0; border: 1px solid #00ff88; border-radius: 9px;
+            position: relative; width: 100%; padding-bottom: 56.25%;
+            height: 0; border: 0.9px solid #00ff88; border-radius: 3px;
             box-shadow: 0 0 13px rgba(0, 255, 136, 0.2); background: #000; margin-bottom: 19px;
+            overflow: hidden;
         }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 9px; }
 
-        /* CLICK OVERLAY (Stops YouTube Links) */
-        .click-guard { position: absolute; top: 0; left: 0; width: 100%; height: 85%; z-index: 5; cursor: default; }
+        /* CLICK GUARDS (RESTORED) */
+        .exit-guard-top { position: absolute; top: 0; left: 0; width: 100%; height: 60px; z-index: 10; }
+        .exit-guard-side { position: absolute; top: 60px; bottom: 50px; width: 20%; z-index: 10; }
+        .left-guard { left: 0; }
+        .right-guard { right: 0; }
 
-        /* BANNER - The Red/Green Hybrid Glow */
+        /* GREEN GLASS BUTTON (RESTORED & RESPONSIVE) */
+        .video-cta-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 50px; 
+            background: linear-gradient(to top, rgba(0, 255, 110, 0.6), transparent); 
+            display: flex; align-items: center; justify-content: center; z-index: 20;
+            backdrop-filter: blur(2px);
+        }
+        .video-cta-overlay a {
+            color: white; font-size: clamp(14px, 4vw, 18px); font-weight: bold; 
+            text-decoration: none; text-shadow: 2px 2px 4px #000; width: 100%;
+        }
+
+        /* BANNER - Red Bottom-Right / Green Top-Left Glow */
         .banner-link { display: block; text-decoration: none; margin-top: 10px; }
         .banner-img { 
-            width: 100%; height: auto; border-radius: 12px; 
+            width: 100%; height: auto; border-radius: .9px; 
             box-shadow: 
-                3px 3px 9px rgba(255, 0, 0, 0.5),   /* Red Bottom-Right */
-                -1px -1px 6px rgba(0, 255, 136, 0.3); /* Soft Green Top-Left */
+                3px 3px 6px rgba(255, 0, 0, 0.5), 
+                -2px -2px 9px rgba(0, 255, 136, 0.3);
         }
 
-        /* TRAFFIC ADBAR - Footer Position */
+        /* TRAFFIC ADBAR FIX */
         .adbar-footer { 
-            margin-top: 49px; padding: 29px 0; border-top: 0px solid #222; 
-            display: flex; justify-content: center; width: 103%;
+            margin-top: 40px; padding: 20px 0; border-top: 1px solid #222; 
+            display: flex; justify-content: center; width: 100%;
         }
+        #tab-container { max-width: 100%; overflow: hidden; }
 
+        /* ANIMATIONS */
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @keyframes loadZoom { 0%, 106% { transform: scale(1); } 60% { transform: scale(1.36); } }
+        @keyframes loadZoom { 
+            0%, 100% { transform: scale(1); } 
+            50% { transform: scale(1.05); } /* Toned down scale for mobile safety */
+        }
     </style>
 </head>
 <body>
@@ -75,8 +96,18 @@
     </div>
 
     <div class="video-wrapper">
-        <div class="click-guard"></div> <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1" 
+        <div class="exit-guard-top"></div>
+        <div class="exit-guard-side left-guard"></div>
+        <div class="exit-guard-side right-guard"></div>
+
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" 
                 frameborder="0" allowfullscreen></iframe>
+        
+        <div class="video-cta-overlay">
+            <a href="https://troypringle2.aimatrixspillover.com/" class="track-link" target="_blank">
+                🔥 CLICK TO SECURE YOUR SPOT 🔥
+            </a>
+        </div>
     </div>
 
     <a href="https://troypringle2.aimatrixspillover.com/" class="banner-link">
@@ -85,9 +116,9 @@
     </a>
 
     <div class="adbar-footer">
-        <div id="tab-container" style="max-width: 116%; overflow: hidden;">
+        <div id="tab-container">
             <script type="text/javascript">
-                tc_ad_client="pringle1troy"; tc_ad_width="269"; tc_ad_height="136";
+                tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
                 tc_color_border="#000000"; tc_color_title="#00ff88"; tc_color_background="#000000"; 
                 tc_color_text="#00ff88"; tc_color_url="#00ff88";
             </script>
