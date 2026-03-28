@@ -7,17 +7,17 @@
     <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
-        /* UNIVERSAL MATRIX SCROLLBAR */
+        /* ABSOLUTE DARKEST GREEN SCROLLBAR */
         html {
             scrollbar-width: thin;
-            scrollbar-color: #004d1a #000000;
+            scrollbar-color: #001a09 #000000;
         }
-        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #000; }
         ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(to bottom, #004d1a, #00ff88); 
-            border-radius: 10px; 
-            border: 2px solid #000;
+            background: #001a09; /* Darkest Forest Green */
+            border-radius: 2px; 
+            border: 1px solid #002200;
         }
 
         /* BASE RESET */
@@ -29,7 +29,6 @@
             margin: 0; 
             padding: 0; 
             overflow-x: hidden;
-            min-height: 100vh;
         }
 
         .container-main { max-width: 850px; margin: 0 auto; padding: 15px; text-align: center; position: relative; }
@@ -42,30 +41,33 @@
         }
         .red-arrow { color: #ff0000; margin-right: 8px; }
 
-        /* THE MASSIVE YELLOW STREAK */
+        /* CHOPPY YELLOW STREAK */
         .streak-container {
             display: inline-block;
             background: #ffea00;
-            /* Angled edges for that "design" look */
-            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
-            padding: 15px 40px;
+            /* Choppy/Uneven rounded corners */
+            border-top-left-radius: 40px 15px;
+            border-bottom-right-radius: 50px 20px;
+            border-top-right-radius: 10px 30px;
+            border-bottom-left-radius: 20px 40px;
+            padding: 18px 45px;
             margin-bottom: 15px;
-            box-shadow: 0 0 20px rgba(255, 234, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 234, 0, 0.1);
         }
         .timer-label { 
-            font-size: clamp(1.3rem, 6vw, 2.2rem); 
+            font-size: clamp(1.4rem, 6.5vw, 2.4rem); 
             color: #ff0000; 
             font-weight: 900; 
             text-transform: uppercase;
-            letter-spacing: 1px;
-            /* Subtle dark stroke to prevent bleed */
-            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
         }
 
+        /* TIMER BOX - High Speed Pulse */
         .timer-box { 
             background: transparent; 
             border: 2px solid #00ff88; 
             border-radius: 20px; padding: 25px 15px; margin-bottom: 20px;
+            animation: fastPulse 1.5s infinite ease-in-out;
         }
         #countdown { font-size: clamp(3rem, 15vw, 5rem); color: #00ff88; font-family: monospace; font-weight: 900; }
         
@@ -89,33 +91,39 @@
         }
         .video-cta-overlay a { color: white; font-size: 20px; font-weight: bold; text-decoration: none; width: 100%; }
 
-        /* YODA TEXT - WIDER & STANDS OUT */
+        /* YODA TEXT */
         .yoda-quote {
-            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            font-size: clamp(1.1rem, 4vw, 1.7rem);
             color: #777;
             font-style: italic;
             margin: 20px 0 35px 0;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 300;
+            font-weight: 400;
         }
 
-        /* BANNER */
+        /* BANNER - Red Glow Removed */
         .banner-img { 
             width: 100%; height: auto; border-radius: 8px; 
-            box-shadow: 8px 8px 20px rgba(255, 0, 0, 0.5), -4px -4px 15px rgba(0, 255, 136, 0.3);
+            box-shadow: -4px -4px 15px rgba(0, 255, 136, 0.3); /* Only Green Top Glow */
         }
 
-        /* TRAFFIC ADBAR - GHOST FOOTER */
+        /* TRAFFIC ADBAR - Lightened link text */
         .adbar-ghost-zone { 
             margin-top: 80px;
             padding: 20px;
             display: flex;
             justify-content: flex-start;
-            opacity: 0.7; /* Less visible as requested */
         }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        
+        /* FAST PULSE ANIMATION */
+        @keyframes fastPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.95; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -150,8 +158,8 @@
         <div id="tab-container">
             <script type="text/javascript">
                 tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
-                tc_color_border="#000000"; tc_color_title="#003311"; tc_color_background="#000000"; 
-                tc_color_text="#003311"; tc_color_url="#001100";
+                tc_color_border="#000000"; tc_color_title="#006622"; tc_color_background="#000000"; 
+                tc_color_text="#006622"; tc_color_url="#004411";
             </script>
             <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
         </div>
