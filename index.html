@@ -8,51 +8,72 @@
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 10px; }
+        body { font-family: Karla, sans-serif !important; background: #000000; color: white; margin: 0; padding: 10px; padding-bottom: 100px; }
         .wrapper { max-width: 800px; margin: auto; text-align: center; }
         
-        /* TIMER STYLES */
-        #timer-wrap { background: rgba(0, 255, 136, 0.1); border: 1px solid #00ff88; border-radius: 10px; padding: 10px; margin-bottom: 20px; }
-        .timer-text { font-size: 0.9rem; color: #00ff88; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold; }
-        #countdown { font-size: 2.2rem; font-weight: 900; color: #fff; text-shadow: 0 0 10px #00ff88; font-family: monospace; }
-
-        /* HEADER GLOW - Now matching the Green Matrix Theme */
-        .top-banner-wrap { 
-            box-shadow: 0 0 30px 10px rgba(0, 255, 136, 0.7); 
-            border-radius: 18px; 
-            margin-bottom: 30px; 
-            border: 1px solid #00ff88;
+        /* PULSING TIMER */
+        #timer-wrap { 
+            background: rgba(255, 0, 0, 0.05); 
+            border: 1px solid rgba(255, 0, 0, 0.3); 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin-bottom: 25px;
+            animation: pulse 2s infinite ease-in-out;
         }
-        
-        h2 { font-size: 1.2rem; color: #00ff88; margin-bottom: 20px; font-weight: bold; text-transform: uppercase; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        .timer-text { 
+            font-size: 1.4rem; 
+            color: #ff3333; 
+            text-transform: uppercase; 
+            font-weight: 900; 
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+            margin-bottom: 5px;
+        }
+        #countdown { font-size: 2.5rem; font-weight: 900; color: #fff; font-family: monospace; }
 
-        /* VIDEO GLOW - Toned down for professional look */
+        /* VIDEO BOX - Clean & Subtile */
         .video-box {
             position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
-            border: 1px solid #00ff88; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
-            background: #000; overflow: hidden; margin-bottom: 40px;
+            border: 1px solid #00ff88; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+            background: #000; overflow: hidden; margin-bottom: 20px;
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
-        .matrix-img-btn { width: 100%; border-radius: 15px; transition: 0.3s; display: block; margin: 0 auto; }
-        .matrix-img-btn:hover { transform: scale(1.01); filter: brightness(1.1); }
+        /* THE BANNER (Now under video) */
+        .top-banner-wrap { 
+            box-shadow: 0 0 20px 5px rgba(0, 255, 136, 0.5); 
+            border-radius: 18px; 
+            margin-top: 20px;
+            border: 1px solid #00ff88;
+            display: inline-block;
+        }
+        .matrix-img-btn { width: 100%; max-width: 800px; border-radius: 15px; display: block; }
 
-        .footer-ads { margin-top: 40px; opacity: 0.6; transition: 0.5s; }
-        .footer-ads:hover { opacity: 1; }
+        /* TRAFFIC ADBAR - Fixed Bottom Left */
+        #tab-container {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 9999;
+            background: #000;
+            border: 1px solid #222;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        h2 { font-size: 1.1rem; color: #00ff88; margin-bottom: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
     <div id="timer-wrap">
-        <div class="timer-text">Positioning Window Closing In:</div>
-        <div id="countdown">00:00:00:00</div>
-    </div>
-
-    <div class="top-banner-wrap">
-        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
-            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="matrix-img-btn" alt="Join Now">
-        </a>
+        <div class="timer-text">POSITIONING WINDOW CLOSING IN:</div>
+        <div id="countdown">00:00:00</div>
     </div>
 
     <h2>⚠️ Watch How Eric Built a Massive Downline ⚠️</h2>
@@ -73,20 +94,26 @@
         </div>
     </div>
 
-    <div class="footer-ads">
-        <script type="text/javascript">
-            tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
-            tc_color_border="#000000"; tc_color_title="#004d26"; tc_color_background="#000000"; 
-            tc_color_text="#004d26"; tc_color_url="#002211";
-        </script>
-        <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
+    <div class="top-banner-wrap">
+        <a href="https://troypringle2.aimatrixspillover.com/" class="track-link">
+            <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" class="matrix-img-btn" alt="Join Now">
+        </a>
     </div>
+</div>
+
+<div id="tab-container">
+    <script type="text/javascript">
+        tc_ad_client="pringle1troy"; tc_ad_width="252"; tc_ad_height="90";
+        tc_color_border="#000000"; tc_color_title="#004d26"; tc_color_background="#000000"; 
+        tc_color_text="#004d26"; tc_color_url="#002211";
+    </script>
+    <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
 </div>
 
 <img src="/api/v1/t" style="display:none;" alt="" onerror="this.style.display='none'">
 
 <script>
-    // 1. LINK GUARD: Pass ?tr= values
+    // Link Guard
     (function() {
         var params = window.location.search;
         if (params) {
@@ -97,7 +124,7 @@
         }
     })();
 
-    // 2. COUNTDOWN TIMER LOGIC (24-Hour Cycle)
+    // 24-Hour Timer Logic
     function updateTimer() {
         const now = new Date();
         const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
