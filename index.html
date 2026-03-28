@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="https://linkpod.s3.us-east-1.amazonaws.com/assets/css/bootstrap.min.css" rel="stylesheet">
-   
+  
     <style>
         /* GLOBAL SCROLLBAR - DARKEST GREEN */
         html {
@@ -56,17 +56,17 @@
             color: #ff0000;
         }
 
-        /* PAINTED BRUSH STROKE */
+        /* LONGER PAINTED BRUSH STROKE */
         .streak-container {
             display: inline-block;
             background: #ffea00;
             width: 100%;
-            max-width: 600px;
+            max-width: 720px;           /* Made wider / longer */
             position: relative;
-            padding: 10px 0;
-            margin-bottom: 5px;
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L5 2 L15 6 L30 1 L50 5 L70 0 L85 4 L100 1 L98 15 L85 19 L65 14 L40 20 L15 16 L0 18 Z" fill="black"/></svg>');
-            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 5 L5 2 L15 6 L30 1 L50 5 L70 0 L85 4 L100 1 L98 15 L85 19 L65 14 L40 20 L15 16 L0 18 Z" fill="black"/></svg>');
+            padding: 12px 20px;         /* More padding for better text breathing room */
+            margin-bottom: 20px;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 25" xmlns="http://www.w3.org/2000/svg"><path d="M0 6 L8 3 L20 8 L35 2 L55 7 L75 1 L95 5 L115 3 L118 18 L100 22 L80 17 L60 23 L40 19 L20 21 L5 15 Z" fill="black"/></svg>');
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 25" xmlns="http://www.w3.org/2000/svg"><path d="M0 6 L8 3 L20 8 L35 2 L55 7 L75 1 L95 5 L115 3 L118 18 L100 22 L80 17 L60 23 L40 19 L20 21 L5 15 Z" fill="black"/></svg>');
             -webkit-mask-size: 100% 100%;
             mask-size: 100% 100%;
         }
@@ -75,22 +75,7 @@
             color: #ff0000;
             font-weight: 900;
             text-transform: uppercase;
-        }
-
-        /* TIMER BOX */
-        .timer-box {
-            background: transparent;
-            border: 1px solid #1a1a1a;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-            padding: 10px;
-        }
-        #countdown {
-            font-size: clamp(2rem, 12vw, 3.5rem);
-            color: #ff0000;
-            font-family: monospace;
-            font-weight: 900;
-            line-height: 1.2;
+            margin: 0;
         }
 
         /* VIDEO WRAPPER */
@@ -103,7 +88,7 @@
             border-radius: 4px;
             box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
             background: #000;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
         .video-wrapper iframe {
@@ -138,7 +123,7 @@
             font-size: clamp(1.1rem, 4vw, 1.6rem);
             color: #555;
             font-style: italic;
-            margin: 10px 0 25px 0;
+            margin: 15px 0 30px 0;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 700;
@@ -153,7 +138,7 @@
             margin-bottom: 30px;
         }
 
-        /* TRAFFIC ADBAR - Clean Dark Container */
+        /* TRAFFIC ADBAR */
         .adbar-footer {
             padding: 25px 0 15px;
             display: flex;
@@ -161,47 +146,40 @@
             background: #000;
         }
 
-        /* === ADBAR SCROLLBAR FIX - HIDDEN BUT STILL SCROLLABLE === */
+        /* ADBAR SCROLLBAR FIX - Hidden but still scrollable */
         #tab-container,
         #tab-container > div,
-        .adbar-footer iframe,
         .adbar-footer * {
-            scrollbar-width: none;           /* Firefox */
-            -ms-overflow-style: none;        /* IE/Edge */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-
         #tab-container::-webkit-scrollbar,
         #tab-container > div::-webkit-scrollbar,
-        .adbar-footer::-webkit-scrollbar,
         .adbar-footer *::-webkit-scrollbar {
-            display: none;                   /* Chrome / Safari / Edge */
+            display: none;
             width: 0;
             height: 0;
-            background: transparent;
         }
 
-        /* Force dark background on the ad bar */
+        /* Light touch on ad bar container */
         #tab-container {
-            background: #000 !important;
-            border: 1px solid #111 !important;
             max-width: 280px;
-            overflow: hidden;
+            background: #000;
+            border: 1px solid #222;
         }
     </style>
 </head>
 <body>
 <div class="container-main">
     <h1 class="headline"><span class="red-arrow">➤</span>Watch How Eric Builds a Massive Downline</h1>
-    
-    <div class="timer-box">
-        <div class="streak-container">
-            <div class="timer-label">Time Sensitive New Updates</div>
-        </div>
-        <div id="countdown">00:00:00</div>
-    </div>
    
+    <!-- Yellow Brush Stroke (no timer) -->
+    <div class="streak-container">
+        <div class="timer-label">Time Sensitive New Updates</div>
+    </div>
+  
     <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" 
+        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1"
                 frameborder="0" allowfullscreen></iframe>
         <div class="video-cta-overlay">
             <a href="https://troypringle2.aimatrixspillover.com/" target="_blank">🔥 CLICK TO SECURE YOUR SPOT 🔥</a>
@@ -209,9 +187,9 @@
     </div>
 
     <div class="yoda-quote">"do or do not there is no try" - yoda</div>
-    
+   
     <a href="https://troypringle2.aimatrixspillover.com/">
-        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png" 
+        <img src="https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/2635024737b92bb05b71e8c4a98a9751.png"
              class="banner-img" alt="Secure Your Spot">
     </a>
 
@@ -219,13 +197,13 @@
     <div class="adbar-footer">
         <div id="tab-container">
             <script type="text/javascript">
-                tc_ad_client="pringle1troy"; 
-                tc_ad_width="252"; 
-                tc_ad_height="110";   /* slightly taller for better look */
-                tc_color_border="#000000"; 
-                tc_color_title="#00cc66"; 
-                tc_color_background="#000000";
-                tc_color_text="#00cc66"; 
+                tc_ad_client="pringle1troy";
+                tc_ad_width="252";
+                tc_ad_height="120";   /* Slightly taller for better visibility */
+                tc_color_border="#222222";
+                tc_color_title="#00cc66";
+                tc_color_background="#111111";   /* Dark but not pure black */
+                tc_color_text="#00cc66";
                 tc_color_url="#00aa44";
             </script>
             <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
