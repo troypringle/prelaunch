@@ -19,7 +19,6 @@
             background: #000; overflow: hidden; margin-bottom: 30px;
         }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .shield { position: absolute; z-index: 20; background: rgba(0,0,0,0.01); }
 
         .matrix-img-btn { width: 100%; max-width: 850px; border-radius: 15px; transition: 0.3s; display: block; margin: 0 auto; }
         .matrix-img-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
@@ -28,7 +27,6 @@
         .sponsor-box { margin-top: 40px; padding: 30px; border-top: 1px solid #222; }
         .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ff88; margin-bottom: 10px; }
 
-        /* Added CSS for side-by-side layout */
         .ad-side-by-side {
             display: inline-block;
             vertical-align: top;
@@ -47,15 +45,12 @@
 
     <h2>Watch VIDEO Below Where Eric Shows his Downline ALREADY...</h2>
 
-<div class="video-box" style="position: relative; width: 100%; padding-bottom: 56.25%; background: #000; overflow: hidden; border-radius: 8px;">
+<div class="video-box">
     <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1" 
-            frameborder="0" allowfullscreen allow="autoplay" 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"></iframe>
+            frameborder="0" allowfullscreen allow="autoplay"></iframe>
     
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 75px; z-index: 20; background: transparent;"></div>
-    
     <div style="position: absolute; top: 75px; bottom: 45px; left: 0; width: 30%; z-index: 20; background: transparent;"></div>
-    
     <div style="position: absolute; top: 75px; bottom: 45px; right: 0; width: 30%; z-index: 20; background: transparent;"></div>
 
     <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45px; background: linear-gradient(to top, rgba(0, 255, 110, 0.95), transparent); display: flex; align-items: center; justify-content: center; z-index: 30;">
@@ -82,16 +77,18 @@
         </a>
     </div>
 </div>
- <div class="ad-side-by-side">
+
+<div style="text-align:center;">
+    <div class="ad-side-by-side">
         <script type="text/javascript">
             tc_ad_client="pringle1troy";
             tc_ad_width="252";
             tc_ad_height="90";
-            tc_color_border="#000000";     /* BORDER: Solid Black */
-            tc_color_title="#004d26";      /* TITLE: Dark Forest Green */
-            tc_color_background="#000000"; /* BACKGROUND: Solid Black */
-            tc_color_text="#004d26";       /* TEXT: Dark Forest Green */
-            tc_color_url="#002211";        /* URL: Deepest Green */
+            tc_color_border="#000000";
+            tc_color_title="#004d26";
+            tc_color_background="#000000";
+            tc_color_text="#004d26";
+            tc_color_url="#002211";
         </script>
         <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
     </div>
@@ -101,16 +98,18 @@
             tc_ad_client="pringle1troy";
             tc_ad_width="252";
             tc_ad_height="90";
-            tc_color_border="#000000";     /* BORDER: Solid Black */
-            tc_color_title="#004d26";      /* TITLE: Dark Forest Green */
-            tc_color_background="#000000"; /* BACKGROUND: Solid Black */
-            tc_color_text="#004d26";       /* TEXT: Dark Forest Green */
-            tc_color_url="#002211";        /* URL: Deepest Green */
+            tc_color_border="#000000";
+            tc_color_title="#004d26";
+            tc_color_background="#000000";
+            tc_color_text="#004d26";
+            tc_color_url="#002211";
         </script>
         <script type="text/javascript" src="https://trafficadbar.com/bar/show.js"></script>
     </div>
-    <script data-goatcounter="https://troysmartai.com/submit-stats" 
-        async src="/app-helper.js"></script>
+</div>
+
+<img src="/api/v1/t" style="display:none;" alt="" onerror="this.style.display='none'">
+
 <script>
     (function() {
         var params = window.location.search;
