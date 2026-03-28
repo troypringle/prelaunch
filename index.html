@@ -5,22 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     
-    <!-- Reliable Bootstrap 5 CDN -->
+    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* GLOBAL SCROLLBAR */
-        html {
-            scrollbar-color: #001a00 #000;
-            scrollbar-width: thin;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #001a00; border: 1px solid #003300; }
-
         * { box-sizing: border-box; }
 
         body {
@@ -39,7 +27,7 @@
             text-align: center;
         }
 
-        /* HEADLINE WITH REDUCED GREEN GLOW */
+        /* Green headline - glow turned WAY DOWN */
         .headline {
             font-size: clamp(1.45rem, 6.5vw, 2.7rem);
             color: #00ff88;
@@ -48,15 +36,15 @@
             margin-bottom: 12px;
             line-height: 1.05;
             text-shadow:
-                0 0 8px #00ff88,
-                0 0 15px rgba(0, 255, 136, 0.5);
+                0 0 5px #00ff88,
+                0 0 9px rgba(0, 255, 136, 0.3);
         }
 
         .red-arrow {
             color: #ff0000;
         }
 
-        /* MLM PRELAUNCH - Smaller Red Text */
+        /* Red MLM text - glow reduced */
         .mlm-prelaunch {
             font-size: clamp(1rem, 4vw, 1.45rem);
             color: #ff0000;
@@ -64,21 +52,20 @@
             text-transform: uppercase;
             margin-bottom: 25px;
             text-shadow:
-                0 0 6px #ff0000,
-                0 0 10px rgba(255, 0, 0, 0.4);
+                0 0 4px #ff0000,
+                0 0 7px rgba(255, 0, 0, 0.3);
         }
 
-        /* YELLOW BRUSH STREAK CONTAINER - Now using transparent image */
+        /* Yellow Brush Banner - Larger to properly fit behind text */
         .streak-container {
             display: inline-block;
             width: 100%;
-            max-width: 720px;
-            height: 110px;
-            background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/4af0180a4e0e20e2d1104268de230848.png') center/contain no-repeat;
+            max-width: 760px;
+            height: 155px;           /* Increased for better fit */
+            background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/4af0180a4e0e20e2d1104268de230848.png') 
+                        center / contain no-repeat;
             position: relative;
             margin-bottom: 30px;
-            border-radius: 6px;
-            overflow: hidden;
         }
 
         .timer-label {
@@ -93,15 +80,15 @@
             width: 100%;
             text-align: center;
             margin: 0;
-            padding: 0 15px;
+            padding: 0 20px;
             line-height: 1.1;
-            /* Reduced red glow */
+            /* Red glow turned way down */
             text-shadow:
-                0 0 5px #ff3333,
-                0 0 10px rgba(255, 50, 50, 0.5);
+                0 0 4px #ff3333,
+                0 0 8px rgba(255, 50, 50, 0.35);
         }
 
-        /* VIDEO WRAPPER */
+        /* Video Container */
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -113,6 +100,35 @@
             background: #000;
             margin-bottom: 25px;
             overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255,0,0,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .play-button span {
+            color: white;
+            font-size: 42px;
+            margin-left: 8px;
         }
 
         .video-wrapper iframe {
@@ -121,9 +137,10 @@
             left: 0;
             width: 100%;
             height: 100%;
+            display: none;
         }
 
-        /* CLICK TO SECURE - RED WITH GLOW */
+        /* CTA Overlay */
         .video-cta-overlay {
             position: absolute;
             bottom: 0;
@@ -134,7 +151,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 110;
+            z-index: 20;
         }
 
         .video-cta-overlay a {
@@ -142,13 +159,12 @@
             font-size: 19px;
             font-weight: bold;
             text-decoration: none;
-            width: 100%;
             text-shadow:
                 0 0 6px #ff0000,
-                0 0 12px rgba(255, 0, 0, 0.6);
+                0 0 12px rgba(255, 0, 0, 0.5);
         }
 
-        /* YODA TEXT - Reduced brightness */
+        /* Yoda Quote */
         .yoda-quote {
             font-size: clamp(1.1rem, 4vw, 1.6rem);
             color: #777;
@@ -159,7 +175,7 @@
             font-weight: 700;
         }
 
-        /* BANNER */
+        /* Banner Image */
         .banner-img {
             width: 100%;
             max-width: 800px;
@@ -173,17 +189,26 @@
 <div class="container-main">
     <h1 class="headline"><span class="red-arrow">➤</span> Watch How Eric Builds a Massive Downline</h1>
    
-    <!-- MLM Prelaunch Subheadline -->
     <div class="mlm-prelaunch">MLM PRELAUNCH</div>
 
-    <!-- Yellow Transparent Brush Streak -->
+    <!-- Yellow Brush Banner -->
     <div class="streak-container">
         <div class="timer-label">Time Sensitive New Updates</div>
     </div>
  
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1"
-                frameborder="0" allowfullscreen></iframe>
+    <!-- Lazy Loaded Video -->
+    <div class="video-wrapper" onclick="loadYouTubeVideo(this)">
+        <img src="https://img.youtube.com/vi/S-T07JIxQEk/maxresdefault.jpg" 
+             alt="Watch How Eric Builds a Massive Downline">
+
+        <div class="play-button">
+            <span>▶</span>
+        </div>
+
+        <iframe id="youtube-iframe" 
+                frameborder="0" 
+                allowfullscreen></iframe>
+
         <div class="video-cta-overlay">
             <a href="https://troypringle2.aimatrixspillover.com/" target="_blank">🔥 CLICK TO SECURE YOUR SPOT 🔥</a>
         </div>
@@ -196,7 +221,7 @@
              class="banner-img" alt="Secure Your Spot">
     </a>
 
-    <!-- TRAFFIC ADBAR (unchanged) -->
+    <!-- Traffic Adbar -->
     <div class="adbar-footer">
         <div id="tab-container">
             <script type="text/javascript">
@@ -213,5 +238,20 @@
         </div>
     </div>
 </div>
+
+<script>
+function loadYouTubeVideo(wrapper) {
+    const iframe = wrapper.querySelector('#youtube-iframe');
+    iframe.src = "https://www.youtube.com/embed/S-T07JIxQEk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1&autoplay=1";
+    iframe.style.display = 'block';
+
+    // Hide thumbnail and play button
+    wrapper.querySelector('img').style.display = 'none';
+    wrapper.querySelector('.play-button').style.display = 'none';
+    
+    // Remove click handler
+    wrapper.onclick = null;
+}
+</script>
 </body>
 </html>
