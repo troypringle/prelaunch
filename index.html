@@ -49,33 +49,40 @@
             color: #00ff88;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.1;
         }
         .red-arrow {
             color: #ff0000;
         }
 
-        /* LONGER PAINTED BRUSH STROKE */
+        /* NEW IMAGE BRUSH / BANNER BEHIND TEXT */
         .streak-container {
             display: inline-block;
-            background: #ffea00;
             width: 100%;
-            max-width: 720px;           /* Made wider / longer */
+            max-width: 720px;                    /* Close to video width */
+            height: 85px;                        /* Adjust if needed after testing */
+            background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/639ecbbf84ff78056065d249d8b955b3.jpg') center/cover no-repeat;
             position: relative;
-            padding: 12px 20px;         /* More padding for better text breathing room */
-            margin-bottom: 20px;
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 25" xmlns="http://www.w3.org/2000/svg"><path d="M0 6 L8 3 L20 8 L35 2 L55 7 L75 1 L95 5 L115 3 L118 18 L100 22 L80 17 L60 23 L40 19 L20 21 L5 15 Z" fill="black"/></svg>');
-            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 120 25" xmlns="http://www.w3.org/2000/svg"><path d="M0 6 L8 3 L20 8 L35 2 L55 7 L75 1 L95 5 L115 3 L118 18 L100 22 L80 17 L60 23 L40 19 L20 21 L5 15 Z" fill="black"/></svg>');
-            -webkit-mask-size: 100% 100%;
-            mask-size: 100% 100%;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            overflow: hidden;
         }
         .timer-label {
-            font-size: clamp(1.1rem, 5vw, 1.8rem);
+            font-size: clamp(1.15rem, 5vw, 1.85rem);
             color: #ff0000;
             font-weight: 900;
             text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);   /* Helps text stand out */
             margin: 0;
+            padding: 0 15px;
+            z-index: 2;
         }
 
         /* VIDEO WRAPPER */
@@ -146,7 +153,7 @@
             background: #000;
         }
 
-        /* ADBAR SCROLLBAR FIX - Hidden but still scrollable */
+        /* ADBAR SCROLLBAR FIX */
         #tab-container,
         #tab-container > div,
         .adbar-footer * {
@@ -161,7 +168,6 @@
             height: 0;
         }
 
-        /* Light touch on ad bar container */
         #tab-container {
             max-width: 280px;
             background: #000;
@@ -173,7 +179,7 @@
 <div class="container-main">
     <h1 class="headline"><span class="red-arrow">➤</span>Watch How Eric Builds a Massive Downline</h1>
    
-    <!-- Yellow Brush Stroke (no timer) -->
+    <!-- Image Background with Text Overlay -->
     <div class="streak-container">
         <div class="timer-label">Time Sensitive New Updates</div>
     </div>
@@ -199,10 +205,10 @@
             <script type="text/javascript">
                 tc_ad_client="pringle1troy";
                 tc_ad_width="252";
-                tc_ad_height="120";   /* Slightly taller for better visibility */
+                tc_ad_height="120";
                 tc_color_border="#222222";
                 tc_color_title="#00cc66";
-                tc_color_background="#111111";   /* Dark but not pure black */
+                tc_color_background="#111111";
                 tc_color_text="#00cc66";
                 tc_color_url="#00aa44";
             </script>
