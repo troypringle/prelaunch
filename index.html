@@ -124,28 +124,29 @@
             background: rgba(0,0,0,0);
         }
 
-        /* YELLOW GLASS CTA OVERLAY (UPDATED COLORS) */
+        /* DARK GREEN EMBOSSED CTA OVERLAY */
         .video-cta-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
             height: 53px;
-            background: rgba(136, 136, 0, 0.45); /* YELLOW TINT */
-            backdrop-filter: blur(6px);
+            background: rgba(0, 30, 15, 0.3); /* DARK GREEN TRANSPARENT */
+            backdrop-filter: blur(8px); /* INCREASED BLUR */
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 20;
-            border-top: 1px solid rgba(1, 50, 32, 0.2);
+            border-top: 1px solid rgba(0, 77, 38, 0.4);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), inset 0 -1px 2px rgba(0, 0, 0, 0.5); /* EMBOSSED EFFECT */
         }
 
-        /*  CTA TEXT (UPDATED COLORS) */
+        /* DARK GREEN CTA TEXT */
         .video-cta-overlay a {
-            color: #ff0000; /* RED TEXT */
+            color: #004d26; /* SAME GREEN AS VIDEO BORDER */
             font-size: 17px;
             font-weight: 900;
             text-decoration: none;
             width: 99%;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            text-shadow: -1px -1px 1px rgba(0,0,0,0.8), 1px 1px 1px rgba(255,255,255,0.1); /* EMBOSSED TEXT EFFECT */
         }
 
         .yoda-quote {
