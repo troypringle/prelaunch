@@ -84,20 +84,21 @@
         }, 10000); 
     })();
 </script>
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Get the 'source' from your URL (e.g., troysmartai.com?source=trafficsource)
+    // 1. Get 'TID' from your URL (e.g., troysmartai.com?TID=trafficsource)
     const urlParams = new URLSearchParams(window.location.search);
-    const trafficSource = urlParams.get('source');
+    const tidValue = urlParams.get('TID');
 
-    if (trafficSource) {
-        // 2. Find all links that point to the HBA turnkey page
+    if (tidValue) {
+        // 2. Find all links pointing to the HBA turnkey page
         const links = document.querySelectorAll('a[href*="thehba.app/turnkey"]');
         
         links.forEach(link => {
-            // 3. Append the TID to your existing affiliate link
+            // 3. Append the TID to your affiliate link
+            // If the link already has a '?', use '&'. Otherwise, use '?'
             const separator = link.href.includes('?') ? '&' : '?';
-            link.href = link.href + separator + 'TID=' + trafficSource;
+            link.href = link.href + separator + 'TID=' + tidValue;
         });
     }
 });
