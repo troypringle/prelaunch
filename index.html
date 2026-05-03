@@ -86,19 +86,22 @@
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Get 'TID' from your URL (e.g., troysmartai.com?TID=trafficsource)
+    // 1. Grab the TID from your URL
     const urlParams = new URLSearchParams(window.location.search);
     const tidValue = urlParams.get('TID');
 
+    // Only run if a TID actually exists in the URL
     if (tidValue) {
-        // 2. Find all links pointing to the HBA turnkey page
-        const links = document.querySelectorAll('a[href*="thehba.app/turnkey"]');
+        // 2. Broaden the search to catch ANY link going to thehba.app
+        const links = document.querySelectorAll('a[href*="thehba.app"]');
         
         links.forEach(link => {
-            // 3. Append the TID to your affiliate link
-            // If the link already has a '?', use '&'. Otherwise, use '?'
+            // 3. Append the TID
             const separator = link.href.includes('?') ? '&' : '?';
             link.href = link.href + separator + 'TID=' + tidValue;
+            
+            // Optional: Log to console so you can see it working in 'Inspect' mode
+            console.log("Updated HBA Link: " + link.href);
         });
     }
 });
