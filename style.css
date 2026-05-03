@@ -34,9 +34,9 @@ body {
 /* ==================================================== */
 .float-container {
     position: fixed;
-    /* PUSHED HIGHER UP NEAR THE DOMAIN/URL AREA */
+    /* ADJUSTED TOP TO PREVENT CLIPPING INTO URL BAR */
     left: calc(50vw - 390px); 
-    top: 20px; 
+    top: 45px; 
     
     width: 320px;   
     height: 320px;  
@@ -55,7 +55,7 @@ body {
 }
 
 @keyframes professor-pill-cycle {
-    /* START AT TOP NEAR BANNER */
+    /* START NEAR BANNER */
     0% { 
         transform: scale(1) translate(0, 0); 
         filter: drop-shadow(0 0 20px #00ff88);
@@ -70,28 +70,28 @@ body {
         filter: drop-shadow(0 0 36px #00ff88) brightness(1.2);
     }
 
-    /* PURPLE GLOW: FLY FURTHER UP (-15vh) */
+    /* PURPLE GLOW: MOVE RIGHT BUT STAY NEAR TOP (-5vh) */
     26% { 
-        transform: translate(36vw, -15vh) rotate(13deg); 
+        transform: translate(36vw, -5vh) rotate(13deg); 
         filter: drop-shadow(0 0 40px #bc13fe) drop-shadow(0 0 11px #00ffff);
         opacity: 1;
     }
 
-    /* RED GLOW: REDUCED SWOOP (5vh) TO STAY CLEAR OF VIDEO */
+    /* RED GLOW: MOVE SLIGHTLY DOWN BUT CLEAR OF VIDEO (10vh) */
     55% { 
-        transform: translate(6vw, 5vh) rotate(-10deg); 
+        transform: translate(6vw, 10vh) rotate(-10deg); 
         filter: drop-shadow(0 0 45px #ff0000) brightness(1.5);
         opacity: 1;
     } 
 
-    /* BLUE GLOW: FLY HIGHER UP (-10vh) */
+    /* BLUE GLOW: WIDE SWING LEFT/TOP (-2vh) */
     75% { 
-        transform: translate(35vw, -10vh) rotate(8deg); 
+        transform: translate(-10vw, -2vh) rotate(8deg); 
         filter: drop-shadow(0 0 45px #0066ff) contrast(1.6);
         opacity: 1;
     }
 
-    /* RETURN TO GREEN LANDING */
+    /* RETURN TO HOME POSITION */
     92%, 99% { 
         transform: translate(0, 0) scale(1); 
         filter: drop-shadow(0 0 20px #00ff88);
@@ -244,7 +244,7 @@ body {
         width: 170px; 
         height: 170px; 
         left: calc(50vw - 175px);
-        top: 10px; /* HIGHER ON MOBILE */
+        top: 25px; /* ADJUSTED FOR MOBILE VIEWPORT */
     } 
 
     @keyframes professor-pill-cycle {
@@ -253,15 +253,15 @@ body {
             filter: drop-shadow(0 0 15px #00ff88); 
         }
         25% { 
-            transform: translate(140px, -40px); /* PULL UP */
+            transform: translate(140px, -15px); 
             filter: drop-shadow(0 0 25px #bc13fe); 
         }
         50% { 
-            transform: translate(20px, 40px); /* REDUCED DROP */
+            transform: translate(20px, 60px); 
             filter: drop-shadow(0 0 25px #0066ff); 
         }
         75% { 
-            transform: translate(99px, -10px); /* PULL UP */
+            transform: translate(99px, -5px); 
             filter: drop-shadow(0 0 25px #ff0000); 
         }
     }
