@@ -85,22 +85,23 @@
     })();
 </script>
 <script>
-document.addEventListener("click", function(e) {
-    const link = e.target.closest('a');
-    if (link && link.href.includes('thehba.app')) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const tidValue = urlParams.get('TID');
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Grab the TID from YOUR URL bar
+    const urlParams = new URLSearchParams(window.location.search);
+    const tidValue = urlParams.get('TID');
 
-        if (tidValue) {
-            e.preventDefault(); // Stop the "weak" link click
-            let targetURL = new URL(link.href);
-            targetURL.searchParams.set('TID', tidValue);
-            
-            // This forces the browser to treat it as a brand new request
-            window.location.replace(targetURL.href);
-        }
+    // 2. If a TID exists, find every HBA link and update it
+    if (tidValue) {
+        document.querySelectorAll('a[href*="thehba.app"]').forEach(link => {
+            // Check if TID is already there to avoid double-adding
+            if (!link.href.includes('TID=')) {
+                const separator = link.href.includes('?') ? '&' : '?';
+                link.href = link.href + separator + 'TID=' + tidValue;
+            }
+        });
+        console.log("Tracking injected: " + tidValue);
     }
-}, true);
+});
 </script>
 
 </body>
