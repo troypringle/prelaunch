@@ -87,25 +87,21 @@
 <script>
 document.addEventListener("click", function(e) {
     const link = e.target.closest('a');
-    
-    // Check if the link goes to HBA
     if (link && link.href.includes('thehba.app')) {
         const urlParams = new URLSearchParams(window.location.search);
         const tidValue = urlParams.get('TID');
 
         if (tidValue) {
-            // Stop the normal click for a split second
-            e.preventDefault();
-
-            // Re-build the URL manually to ensure it's "Hard-Coded"
+            e.preventDefault(); // Stop the "weak" link click
             let targetURL = new URL(link.href);
             targetURL.searchParams.set('TID', tidValue);
-
-            // Force the browser to jump to the new URL immediately
-            window.location.href = targetURL.href;
+            
+            // This forces the browser to treat it as a brand new request
+            window.location.replace(targetURL.href);
         }
     }
-}, true); // The 'true' ensures we catch the click before other scripts can stop it
+}, true);
+</script>
 
 </body>
 </html>
