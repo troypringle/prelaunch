@@ -85,36 +85,27 @@
     })();
 </script>
 <script>
-(function() {
-    function injectHbaTid() {
-        const tidValue = new URLSearchParams(window.location.search).get('TID');
-        if (!tidValue) return;
-
-        // 1. Update any links that appear
-        document.querySelectorAll('a[href*="thehba.app"]').forEach(link => {
-            if (!link.href.includes('TID=')) {
-                const sep = link.href.includes('?') ? '&' : '?';
-                link.href = link.href + sep + 'TID=' + tidValue;
-            }
-        });
-
-        // 2. Update any form actions that appear
-        document.querySelectorAll('form[action*="thehba.app"]').forEach(form => {
-            if (!form.action.includes('TID=')) {
-                const sep = form.action.includes('?') ? '&' : '?';
-                form.action = form.action + sep + 'TID=' + tidValue;
-            }
-        });
-    }
-
-    // This watches the React app and runs every time the page changes
-    const observer = new MutationObserver(() => injectHbaTid());
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+document.addEventListener("click", function(e) {
+    const link = e.target.closest('a');
     
-    // Also run once at start
-    window.addEventListener('load', injectHbaTid);
-})();
-</script>
+    // Check if the link goes to HBA
+    if (link && link.href.includes('thehba.app')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tidValue = urlParams.get('TID');
+
+        if (tidValue) {
+            // Stop the normal click for a split second
+            e.preventDefault();
+
+            // Re-build the URL manually to ensure it's "Hard-Coded"
+            let targetURL = new URL(link.href);
+            targetURL.searchParams.set('TID', tidValue);
+
+            // Force the browser to jump to the new URL immediately
+            window.location.href = targetURL.href;
+        }
+    }
+}, true); // The 'true' ensures we catch the click before other scripts can stop it
 
 </body>
 </html>
