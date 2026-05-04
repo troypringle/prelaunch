@@ -1,2 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script 
+        id="counterscale-script" 
+        data-site-id="troysmartai.com" 
+        src="https://counterscale.pringle-troy.workers.dev/tracker.js" 
+        defer>
+    </script> 
+    <title>Watch NEW Youtube Video Huge Updates</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Centering and Width Adjustments */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers the page-border horizontally */
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4; /* Optional: matches standard web backgrounds */
+        }
 
-test 123
+        .page-border {
+            width: 900px; /* Adjust this to change the width of your main content area */
+            max-width: 95vw;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers the text and video inside the border */
+        }
+
+        /* Ensuring the video stays centered and responsive */
+        .video-container-box {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Custom override: Hide banner if it still exists in external CSS */
+        .banner-img-container, .banner-img {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- The Floater (Still linked to your CSS variables for rotation) -->
+<div class="float-container" id="profBox"></div>
+
+<div class="page-border">
+    <div class="streak-container">
+        <p class="streak-text">🚨 See LIVE in Real Time 🚨</p>
+    </div>
+
+    <!-- BANNER REMOVED AS REQUESTED -->
+
+    <div class="spacer-between"></div>
+
+    <span class="headline">
+        <span class="red-arrow">➤</span>" People fail, systems don’t "
+    </span>
+    
+    <div class="yoda-quote"> See the Only 80% commission system that GETS LEADS, Writes Emails, and works before you do</div> 
+    
+    <div class="spacer-between"></div>
+
+    <div class="video-container-box">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/wbXWTZD1wPk?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <div class="touch-shield"></div>
+
+        <div class="video-cta-overlay">
+            <a href="https://thehba.app/turnkey-system?aff_id=14801" target="_blank">TO STOP TINY COMMISSIONS CLICK HERE✔️</a>
+        </div>
+    </div>
+
+    <div class="yoda-quote">"do or do not there is no try" - yoda</div> 
+</div>
+
+<script>
+    // 1. URL PARAMETER LOGIC (Existing)
+    (function() {
+        var params = window.location.search;
+        if (params) {
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                if(links[i].href.indexOf('aimatrixspillover') !== -1) {
+                    var sep = links[i].href.indexOf('?') !== -1 ? '&' : '?';
+                    links[i].href += sep + params.substring(1);
+                }
+            }
+        }
+    })();
+
+    // 2. IMAGE ROTATION + TRANSITION BOOST
+    // Note: To change the "Professor," update the --prof variables in your style.css 
+    // or change the logic below to point to new image URLs.
+    (function() {
+        const profBox = document.getElementById('profBox');
+        let count = 1;
+        
+        setInterval(() => {
+            count = (count % 7) + 1;
+            
+            profBox.style.transform += " scale(1.15)";
+            
+            setTimeout(() => {
+                // If you rename your images, update these variable names
+                profBox.style.backgroundImage = `var(--prof-${count})`;
+                profBox.style.transform = profBox.style.transform.replace(" scale(1.15)", "");
+            }, 150); 
+
+        }, 10000); 
+    })();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Grab the TID from YOUR URL bar
+    const urlParams = new URLSearchParams(window.location.search);
+    const tidValue = urlParams.get('TID');
+
+    // 2. If a TID exists, find every HBA link and update it
+    if (tidValue) {
+        document.querySelectorAll('a[href*="thehba.app"]').forEach(link => {
+            if (!link.href.includes('TID=')) {
+                const separator = link.href.includes('?') ? '&' : '?';
+                link.href = link.href + separator + 'TID=' + tidValue;
+            }
+        });
+        console.log("Tracking injected: " + tidValue);
+    }
+});
+</script>
+
+</body>
+</html>
