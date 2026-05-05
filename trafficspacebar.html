@@ -21,7 +21,7 @@
             justify-content: flex-start;
             min-height: 100vh;
             margin: 0;
-            background-color: #1a1a1a; /* Changed to dark so white/yellow text pops */
+            background-color: #1a1a1a;
         }
 
         .page-border {
@@ -31,15 +31,14 @@
             display: flex;
             flex-direction: column;
             align-items: center; 
-            background: #222; /* Darker background for the content area */
+            background: #222;
             padding: 20px;
             border: 1px solid #444;
             border-radius: 8px;
         }
 
-        /* New Styles for Readability */
         .subheadline-3 {
-            color: #ffff00; /* Bright Yellow */
+            color: #ffff00;
             font-size: 1.6rem;
             font-weight: bold;
             text-align: center;
@@ -48,7 +47,7 @@
         }
 
         .readable-white {
-            color: #ffffff; /* Pure White */
+            color: #ffffff;
             font-size: 1.2rem;
             line-height: 1.6;
             text-align: center;
@@ -64,6 +63,44 @@
 
         .banner-img-container, .banner-img {
             display: none !important;
+        }
+
+        /* --- BIG YELLOW WOBBLE BUTTON --- */
+        .action-btn-container {
+            margin: 10px auto 30px auto;
+            text-align: center;
+        }
+
+        .wobble-btn {
+            display: inline-block;
+            background-color: #ffe600; /* Bright Yellow */
+            color: #cc0000; /* Bold Red */
+            font-size: 1.8rem;
+            font-weight: 900; /* Extra bold */
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            /* Small yellow glow underneath and around */
+            box-shadow: 0 8px 15px rgba(255, 230, 0, 0.3), 0 0 20px rgba(255, 230, 0, 0.6); 
+            border: 2px solid #ffcc00;
+            animation: wobbleJump 2s infinite ease-in-out;
+            transition: transform 0.2s;
+        }
+
+        .wobble-btn:hover {
+            transform: scale(1.05); /* Slightly enlarges when touched/hovered */
+            animation: none; /* Stops wobbling so it's easy to click */
+        }
+
+        /* Keyframes for the jump and wobble effect */
+        @keyframes wobbleJump {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            15% { transform: translateY(-12px) rotate(-3deg); }
+            30% { transform: translateY(0) rotate(3deg); }
+            45% { transform: translateY(-6px) rotate(-2deg); }
+            60% { transform: translateY(0) rotate(2deg); }
+            75% { transform: translateY(0) rotate(0deg); }
         }
     </style>
 </head>
@@ -82,35 +119,36 @@
         <span class="red-arrow">➤</span>" People fail, systems don’t "
     </span>
     
-    <!-- New Yellow Subheadline -->
     <div class="subheadline-3">
         FREE to JOIN & EARN "YES" <br> This Changes Everything!
     </div>
 
-    <!-- New Readable White Text with Line Breaks -->
     <div class="readable-white">
         Impossible 2 Fail 🐠 In This NEW Matrix TRAFFIC Site each position is a purchase rather than a person.
-    <br></br>
-       🐠  Every pack bought above you has to land in the next available slot. Plenty of those slots end up in your matrix! 🐠
+        <br><br>
+        🐠 Every pack bought above you has to land in the next available slot. Plenty of those slots end up in your matrix! 🐠
     </div>
     
     <div class="spacer-between"></div>
 
     <div class="video-container-box">
         <div class="video-wrapper">
-            <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/HW2czMQebPQ?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1" frameborder="0" allowfullscreen></iframe>
-</div>
+            <iframe src="https://www.youtube.com/embed/HW2czMQebPQ?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1" frameborder="0" allowfullscreen></iframe>
         </div>
         
         <div class="touch-shield"></div>
 
         <div class="video-cta-overlay">
-            <a href="https://thehba.app/turnkey-system?aff_id=14801" target="_blank">JOIN HERE - THEN READ CAREFULLY ✔️</a>
+            <a href="https://troysmartai.com/trafficspacebar.html" target="_blank">JOIN HERE - THEN READ CAREFULLY ✔️</a>
         </div>
     </div>
 
-    <!-- Bottom Yoda Quote remains exactly the same -->
+    <!-- NEW WOBBLE BUTTON -->
+    <div class="action-btn-container">
+        <!-- Make sure to place your actual affiliate link in the href below -->
+        <a href="https://troysmartai.com/trafficspacebar.html" class="wobble-btn" target="_blank">JOIN FOR FREE AND EARN TODAY</a>
+    </div>
+
     <div class="yoda-quote">"do or do not there is no try" - yoda</div> 
 </div>
 
