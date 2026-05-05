@@ -7,10 +7,12 @@
         src="https://counterscale.pringle-troy.workers.dev/tracker.js" 
         defer>
     </script> 
-    <title>🚨 NEW- TRAFFIC Site ☄️☄️ FREE</title>
+    <title>🚨 TEST- TRAFFIC Site ☄️☄️ FREE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- LINKED TO TEST FILE -->
+    <link rel="stylesheet" href="test-style.css">
 </head>
 <body>
 
@@ -46,7 +48,6 @@
         </div>
     </div>
 
-    <!-- NEW WOBBLE BUTTON -->
     <div class="action-btn-container">
         <a href="https://troysmartai.com/trafficspacebar.html" class="wobble-btn" target="_blank">JOIN FOR FREE AND EARN TODAY</a>
     </div>
@@ -60,38 +61,35 @@
 </div>
 
 <script>
-    // 1. SOUND ENGINE (Hummingbird Wing Buzz)
+    // 1. SOUND ENGINE (Realistic Buzz)
     let audioCtx, oscillator, gainNode;
     function startBuzz() {
-        if (audioCtx) return; // Prevent multiple instances
+        if (audioCtx) return; 
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         oscillator = audioCtx.createOscillator();
         gainNode = audioCtx.createGain();
 
-        oscillator.type = 'sawtooth'; // Gives that "vibrating" buzz sound
-        oscillator.frequency.setValueAtTime(140, audioCtx.currentTime); // Realistic hum frequency
-        
-        gainNode.gain.setValueAtTime(0.015, audioCtx.currentTime); // Subtle volume
+        oscillator.type = 'sawtooth'; 
+        oscillator.frequency.setValueAtTime(140, audioCtx.currentTime); 
+        gainNode.gain.setValueAtTime(0.015, audioCtx.currentTime); 
         
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
         oscillator.start();
     }
-    // Start sound on first interaction
     document.addEventListener('mousedown', startBuzz);
 
-    // 2. RAPID IMAGE ROTATION (The "Wing Beat")
+    // 2. RAPID IMAGE ROTATION (Wing Beat)
     (function() {
         const profBox = document.getElementById('profBox');
         let count = 1;
-        // 60ms swap creates the 3D realistic wing blur
         setInterval(() => {
             count = (count % 7) + 1;
             profBox.style.backgroundImage = `var(--prof-${count})`;
         }, 60); 
     })();
 
-    // 3. URL PARAMETER LOGIC
+    // 3. TID & URL LOGIC
     (function() {
         var params = window.location.search;
         if (params) {
@@ -104,20 +102,6 @@
             }
         }
     })();
-
-    // 4. TID TRACKING
-    document.addEventListener("DOMContentLoaded", function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const tidValue = urlParams.get('TID');
-        if (tidValue) {
-            document.querySelectorAll('a[href*="thehba.app"]').forEach(link => {
-                if (!link.href.includes('TID=')) {
-                    const separator = link.href.includes('?') ? '&' : '?';
-                    link.href = link.href + separator + 'TID=' + tidValue;
-                }
-            });
-        }
-    });
 </script>
 
 </body>
