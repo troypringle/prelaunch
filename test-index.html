@@ -7,14 +7,284 @@
         src="https://counterscale.pringle-troy.workers.dev/tracker.js" 
         defer>
     </script> 
-    <title>🚨 TEST- TRAFFIC Site ☄️☄️ FREE</title>
+    <title>🚨 NEW- TRAFFIC Site ☄️☄️ FREE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="test-style.css">
+    
+    <style>
+        /* ==================================================== */
+        /* VARIABLE STORAGE (IMAGE LINKS HOUSED HERE)           */
+        /* ==================================================== */
+        :root {
+            --prof-1: url('https://raw.githubusercontent.com/troypringle/images/main/1.png');
+            --prof-2: url('https://raw.githubusercontent.com/troypringle/images/main/2.png');
+            --prof-3: url('https://raw.githubusercontent.com/troypringle/images/main/3.png');
+            --prof-4: url('https://raw.githubusercontent.com/troypringle/images/main/4.png');
+            --prof-5: url('https://raw.githubusercontent.com/troypringle/images/main/5.png');
+            --prof-6: url('https://raw.githubusercontent.com/troypringle/images/main/6.png');
+            --prof-7: url('https://raw.githubusercontent.com/troypringle/images/main/7.png');
+        }
+
+        /* ==================================================== */
+        /* 1. RESET & CORE LAYOUT                               */
+        /* ==================================================== */
+        * { box-sizing: border-box; }
+
+        body {
+            background: #000000 !important;
+            color: white;
+            margin: 0; 
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden; 
+            min-height: 100vh;
+        }
+
+        /* ==================================================== */
+        /* 2. PROFESSOR FLOATIE (THE BREAK-OUT)                 */
+        /* ==================================================== */
+        .float-container {
+            position: fixed;
+            left: calc(50vw - 390px); 
+            top: 45px; 
+            width: 320px;   
+            height: 320px;  
+            z-index: 10000;
+            pointer-events: none; 
+            
+            background-image: var(--prof-1); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+            transition: background-image 0.15s ease-in-out; 
+            animation: professor-pill-cycle 15s ease-in-out infinite;
+            will-change: transform, filter;
+        }
+
+        @keyframes professor-pill-cycle {
+            0% { transform: scale(1) translate(0, 0); filter: drop-shadow(0 0 20px #00ff88); opacity: 1; }
+            1% { transform: scale(1.3) translate(-9px, -3px) rotate(-3deg); }
+            3% { transform: scale(1.4) translate(8px, 2px) rotate(3deg); }
+            6% { transform: scale(1.17) translate(-9px, 3px) rotate(-4deg); }
+            9% { transform: scale(1.19) translate(9px, -6px) rotate(4deg); }
+            12% { transform: scale(1) translate(0, 0); filter: drop-shadow(0 0 36px #00ff88) brightness(1.2); }
+            26% { transform: translate(36vw, -5vh) rotate(13deg); filter: drop-shadow(0 0 40px #bc13fe) drop-shadow(0 0 11px #00ffff); opacity: 1; }
+            55% { transform: translate(6vw, 10vh) rotate(-10deg); filter: drop-shadow(0 0 45px #ff0000) brightness(1.5); opacity: 1; } 
+            75% { transform: translate(-10vw, -2vh) rotate(8deg); filter: drop-shadow(0 0 45px #0066ff) contrast(1.6); opacity: 1; }
+            92%, 99% { transform: translate(0, 0) scale(1); filter: drop-shadow(0 0 20px #00ff88); opacity: 1; }
+        }
+
+        /* ==================================================== */
+        /* 3. PAGE CONTENT & UI                                 */
+        /* ==================================================== */
+        .page-border {
+            width: 100%;
+            max-width: 900px;
+            border: 2px solid #1a1a1a; 
+            border-radius: 13px;
+            padding: 20px;
+            background: #222; 
+            text-align: center;
+            z-index: 5;
+            position: relative;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .streak-container {
+            display: inline-block;
+            width: 100%;
+            max-width: 900px; 
+            height: 99px;      
+            background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/f3511efd5936e0986b6fb7034cecc2c7.png') center / 100% 100% no-repeat;
+            position: relative;
+            margin-bottom: 11px;
+            border-radius: 4px;
+        }
+
+        .streak-text {
+            font-size: clamp(18px, 4vw, 29px); /* Fluid typography fixes the text wrapping */
+            color: #ff0000;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .spacer-between { height: 25px; }
+
+        .headline {
+            font-size: clamp(20px, 5vw, 29px); /* Fluid text */
+            color: #ffffff;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 21px;
+            display: block;
+        }
+
+        .subheadline-3 {
+            color: #ffff00;
+            font-size: clamp(18px, 4vw, 1.6rem); /* Fluid text */
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .red-arrow { color: #ff0000; margin-right: 6px; }
+
+        .readable-white {
+            color: #ffffff;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .banner-img-container, .banner-img {
+            display: none !important;
+        }
+
+        /* ==================================================== */
+        /* 4. VIDEO CONTAINER SYSTEM                            */
+        /* ==================================================== */
+        .video-container-box {
+            position: relative;
+            width: 98%;
+            max-width: 780px;
+            margin: 20px auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            border: 1.5px solid #004d26; 
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5); 
+            background: #000;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        .touch-shield {
+            position: absolute;
+            top: 0; left: 0; right: 0; 
+            height: 15%; /* REDUCED to 15% so the video play/unmute button isn't blocked anymore */
+            z-index: 10;
+        }
+
+        .video-cta-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 53px;
+            background: rgba(255,255,0,0.5);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            border-top: 1px solid rgba(0, 77, 38, 0.4);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-cta-overlay a {
+            color: #FF0000;
+            font-size: 20px;
+            font-weight: 900;
+            text-decoration: none;
+            width: 99%;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        /* ==================================================== */
+        /* 5. BIG YELLOW WOBBLE BUTTON                          */
+        /* ==================================================== */
+        .action-btn-container {
+            margin: 10px auto 30px auto;
+            text-align: center;
+        }
+
+        .wobble-btn {
+            display: inline-block;
+            background-color: #ffe600; 
+            color: #cc0000; 
+            font-size: 1.8rem;
+            font-weight: 900; 
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(255, 230, 0, 0.3), 0 0 20px rgba(255, 230, 0, 0.6); 
+            border: 2px solid #ffcc00;
+            animation: wobbleJump 2s infinite ease-in-out;
+            transition: transform 0.2s;
+        }
+
+        .wobble-btn:hover {
+            transform: scale(1.05); 
+            animation: none; 
+        }
+
+        @keyframes wobbleJump {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            15% { transform: translateY(-12px) rotate(-3deg); }
+            30% { transform: translateY(0) rotate(3deg); }
+            45% { transform: translateY(-6px) rotate(-2deg); }
+            60% { transform: translateY(0) rotate(2deg); }
+            75% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .yoda-quote {
+            font-size: 16px; 
+            color: #888;    
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        /* ==================================================== */
+        /* 6. RESPONSIVE / MOBILE                               */
+        /* ==================================================== */
+        @media (max-width: 600px) {
+            .streak-container { height: 75px; }
+            .spacer-between { height: 15px; }
+            .video-cta-overlay a { font-size: 16px; }
+            
+            .float-container { 
+                width: 170px; 
+                height: 170px; 
+                left: calc(50vw - 175px);
+                top: 25px; 
+            } 
+
+            @keyframes professor-pill-cycle {
+                0%, 100% { transform: translate(0,0); filter: drop-shadow(0 0 15px #00ff88); }
+                25% { transform: translate(140px, -15px); filter: drop-shadow(0 0 25px #bc13fe); }
+                50% { transform: translate(20px, 60px); filter: drop-shadow(0 0 25px #0066ff); }
+                75% { transform: translate(99px, -5px); filter: drop-shadow(0 0 25px #ff0000); }
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- BIRD IS NOW AT Z-INDEX 1 (BEHIND CONTENT) -->
 <div class="float-container" id="profBox"></div>
 
 <div class="page-border">
@@ -36,11 +306,12 @@
 
     <div class="video-container-box">
         <div class="video-wrapper">
+            <!-- iframe untouched, sound is enabled but you must click it to start! -->
             <iframe src="https://www.youtube.com/embed/HW2czMQebPQ?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1" frameborder="0" allowfullscreen></iframe>
         </div>
         
-        <!-- RESTORED OVERLAYS -->
         <div class="touch-shield"></div>
+
         <div class="video-cta-overlay">
             <a href="https://troysmartai.com/trafficspacebar.html" target="_blank">JOIN HERE - THEN READ CAREFULLY ✔️</a>
         </div>
@@ -59,29 +330,47 @@
 </div>
 
 <script>
-    // WING BEAT ONLY - NO AUDIO
-    (function() {
-        const profBox = document.getElementById('profBox');
-        let count = 1;
-        setInterval(() => {
-            count = (count % 7) + 1;
-            profBox.style.backgroundImage = `var(--prof-${count})`;
-        }, 60); 
-    })();
-
-    // URL PARAM LOGIC
+    // 1. URL PARAMETER LOGIC
     (function() {
         var params = window.location.search;
         if (params) {
             var links = document.getElementsByTagName('a');
             for (var i = 0; i < links.length; i++) {
-                if(links[i].href.indexOf('troysmartai') !== -1) {
+                if(links[i].href.indexOf('aimatrixspillover') !== -1) {
                     var sep = links[i].href.indexOf('?') !== -1 ? '&' : '?';
                     links[i].href += sep + params.substring(1);
                 }
             }
         }
     })();
+
+    // 2. IMAGE ROTATION
+    (function() {
+        const profBox = document.getElementById('profBox');
+        let count = 1;
+        setInterval(() => {
+            count = (count % 7) + 1;
+            profBox.style.transform += " scale(1.15)";
+            setTimeout(() => {
+                profBox.style.backgroundImage = `var(--prof-${count})`;
+                profBox.style.transform = profBox.style.transform.replace(" scale(1.15)", "");
+            }, 150); 
+        }, 10000); 
+    })();
+
+    // 3. TID LOGIC
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tidValue = urlParams.get('TID');
+        if (tidValue) {
+            document.querySelectorAll('a[href*="thehba.app"]').forEach(link => {
+                if (!link.href.includes('TID=')) {
+                    const separator = link.href.includes('?') ? '&' : '?';
+                    link.href = link.href + separator + 'TID=' + tidValue;
+                }
+            });
+        }
+    });
 </script>
 
 </body>
