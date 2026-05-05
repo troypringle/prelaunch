@@ -27,44 +27,51 @@
         body {
             background: #000000 !important;
             color: white;
-            margin: 0; 
-            padding: 10px;
+            margin: 0; padding: 10px;
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
             overflow-x: hidden; 
             min-height: 100vh;
         }
 
-        /* HUMMINGBIRD MASCOT */
+        /* ==================================================== */
+        /* IMPROVED HUMMINGBIRD: ZIP-LOGIC                      */
+        /* ==================================================== */
         .hummingbird {
             position: fixed;
             width: 50px;
             height: 50px;
-            z-index: 20000;
+            z-index: 9998; /* Just below Professor, above everything else */
             pointer-events: none;
             background: url('https://raw.githubusercontent.com/troypringle/images/main/hummingbird.png') no-repeat center/contain;
-            filter: drop-shadow(0 0 12px #ffe600) drop-shadow(0 0 5px #bc13fe);
+            filter: drop-shadow(0 0 8px #ffe600) drop-shadow(0 0 12px #bc13fe);
             will-change: transform, left, top;
         }
 
-        @keyframes wingFlap {
-            0% { transform: scaleY(1) skewX(0deg); }
-            50% { transform: scaleY(0.4) skewX(15deg); }
-            100% { transform: scaleY(1) skewX(0deg); }
+        @keyframes humm_vibrate {
+            0% { transform: scaleY(1.2) rotate(3deg); }
+            50% { transform: scaleY(0.2) rotate(-3deg); }
+            100% { transform: scaleY(1.2) rotate(3deg); }
         }
 
-        @keyframes birdFlight {
-            0% { left: -100px; top: 2%; }
-            25% { left: 30%; top: 8%; }
-            50% { left: 90%; top: 3%; }
-            75% { left: 40%; top: 10%; }
-            100% { left: 110%; top: 2%; }
+        /* Flight logic: Hover at edges, ZIP through the middle */
+        @keyframes humm_flight {
+            0% { left: -60px; top: 2%; }
+            15% { left: 10%; top: 5%; } /* Hover near top left */
+            25% { left: 12%; top: 4%; } 
+            30% { left: 85%; top: 2%; } /* ZIP across middle (5% time) */
+            45% { left: 88%; top: 6%; } /* Hover near top right */
+            55% { left: 86%; top: 5%; }
+            60% { left: 15%; top: 8%; } /* ZIP back across */
+            80% { left: 10%; top: 3%; }
+            100% { left: 110%; top: 5%; }
         }
 
-        /* PROFESSOR FLOATIE */
+        /* ==================================================== */
+        /* PROFESSOR FLOATIE                                    */
+        /* ==================================================== */
         .float-container {
             position: fixed;
             left: calc(50vw - 390px); 
@@ -76,7 +83,6 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            transition: background-image 0.15s ease-in-out; 
             animation: professor-pill-cycle 15s ease-in-out infinite;
         }
 
@@ -87,7 +93,9 @@
             75% { transform: translate(-10vw, -2vh) rotate(8deg); filter: drop-shadow(0 0 45px #0066ff); }
         }
 
-        /* PAGE CONTENT */
+        /* ==================================================== */
+        /* PAGE CONTENT                                         */
+        /* ==================================================== */
         .page-border {
             width: 100%;
             max-width: 900px;
@@ -106,7 +114,6 @@
             height: 99px;      
             background: url('https://linkpod.s3.us-east-1.amazonaws.com/uploads/block_images/f3511efd5936e0986b6fb7034cecc2c7.png') center / 100% 100% no-repeat;
             position: relative;
-            margin-bottom: 11px;
         }
 
         .streak-text {
@@ -246,30 +253,34 @@
 </div>
 
 <script>
-    // HUMMINGBIRD ENGINE
+    // ZIP-LOGIC HUMMINGBIRD
     function summonBird() {
         const bird = document.createElement('div');
         bird.className = 'hummingbird';
         document.body.appendChild(bird);
         
-        // Wing animation
-        bird.style.animation = 'birdFlight 7s linear forwards, wingFlap 0.08s infinite';
+        bird.style.animation = 'humm_flight 6s ease-in-out forwards, humm_vibrate 0.04s infinite alternate';
 
-        // Sound Logic
         const audio = new Audio('https://raw.githubusercontent.com/troypringle/images/main/wings.mp3');
-        audio.volume = 0.3;
-        audio.play().catch(() => {}); // Catch prevents console error if no user interaction yet
+        audio.volume = 0.2;
+        audio.loop = true;
+        
+        const playOnInteraction = () => {
+            audio.play().catch(() => {});
+            document.removeEventListener('mousedown', playOnInteraction);
+        };
+        document.addEventListener('mousedown', playOnInteraction);
 
         setTimeout(() => { 
             bird.remove(); 
             audio.pause();
-        }, 7000);
+        }, 6000);
     }
 
-    // Launch bird every 25 seconds
-    setInterval(summonBird, 25000);
+    // Frequent appearances for high attention
+    setInterval(summonBird, 28000);
 
-    // PROFESSOR IMAGE ROTATION
+    // PROFESSOR ROTATION
     (function() {
         const profBox = document.getElementById('profBox');
         let count = 1;
@@ -286,7 +297,8 @@
         if (tid) {
             document.querySelectorAll('a').forEach(link => {
                 if (link.href.includes('troysmartai.com')) {
-                    link.href += (link.href.includes('?') ? '&' : '?') + 'TID=' + tid;
+                    const sep = link.href.includes('?') ? '&' : '?';
+                    link.href += sep + 'TID=' + tid;
                 }
             });
         }
