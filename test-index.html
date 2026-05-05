@@ -10,13 +10,11 @@
     <title>🚨 TEST- TRAFFIC Site ☄️☄️ FREE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    
-    <!-- LINKED TO TEST FILE -->
     <link rel="stylesheet" href="test-style.css">
 </head>
 <body>
 
-<!-- THE HUMMINGBIRD -->
+<!-- BIRD IS NOW AT Z-INDEX 1 (BEHIND CONTENT) -->
 <div class="float-container" id="profBox"></div>
 
 <div class="page-border">
@@ -41,8 +39,8 @@
             <iframe src="https://www.youtube.com/embed/HW2czMQebPQ?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&playsinline=1" frameborder="0" allowfullscreen></iframe>
         </div>
         
+        <!-- RESTORED OVERLAYS -->
         <div class="touch-shield"></div>
-
         <div class="video-cta-overlay">
             <a href="https://troysmartai.com/trafficspacebar.html" target="_blank">JOIN HERE - THEN READ CAREFULLY ✔️</a>
         </div>
@@ -61,25 +59,7 @@
 </div>
 
 <script>
-    // 1. SOUND ENGINE (Realistic Buzz)
-    let audioCtx, oscillator, gainNode;
-    function startBuzz() {
-        if (audioCtx) return; 
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        oscillator = audioCtx.createOscillator();
-        gainNode = audioCtx.createGain();
-
-        oscillator.type = 'sawtooth'; 
-        oscillator.frequency.setValueAtTime(140, audioCtx.currentTime); 
-        gainNode.gain.setValueAtTime(0.015, audioCtx.currentTime); 
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        oscillator.start();
-    }
-    document.addEventListener('mousedown', startBuzz);
-
-    // 2. RAPID IMAGE ROTATION (Wing Beat)
+    // WING BEAT ONLY - NO AUDIO
     (function() {
         const profBox = document.getElementById('profBox');
         let count = 1;
@@ -89,7 +69,7 @@
         }, 60); 
     })();
 
-    // 3. TID & URL LOGIC
+    // URL PARAM LOGIC
     (function() {
         var params = window.location.search;
         if (params) {
